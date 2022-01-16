@@ -8,6 +8,12 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+#PATHS
+export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/go/bin/:$PATH"
+
+
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # History filepath

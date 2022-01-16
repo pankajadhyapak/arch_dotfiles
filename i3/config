@@ -27,11 +27,14 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up
+bindsym XF86AudioLowerVolume exec --no-startup-id changevolume down
+bindsym XF86AudioMute exec --no-startup-id changevolume mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
+bindsym XF86MonBrightnessDown exec --no-startup-id changebrightness down
+bindsym XF86MonBrightnessUp exec --no-startup-id changebrightness up
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -41,10 +44,16 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# screenshot 
+
+bindsym $mod+Control+4 exec screenshot window
+bindsym --release $mod+Control+3 exec screenshot select
+
+#calculator 
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
+
 # start dmenu (a program launcher)
-
 bindsym $mod+space exec --no-startup-id rofi -modi "window#run#ssh" -show drun
-
 bindsym $mod+Tab exec rofi -show window run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -183,7 +192,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 # Startups
 exec --no-startup-id sh ~/.config/i3/startup.sh
-exec --no-startup-id feh --no-fehbg --bg-fill ~/Desktop/wall.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/wall.jpg
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet

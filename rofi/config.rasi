@@ -1,81 +1,80 @@
 configuration {
-    display-drun:                   "Apps";
-    display-window:                 "Window";
-    show-icons:true;
-    icon-theme:                     "McMojave-circle";
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  drun-display-format: "{name}";
+  font: "JetBrainsMono Nerd Font Medium 10";
+  modi: "window,run,drun";
+  show-icons:true;
+
 }
- 
+
+@theme "/dev/null"
+
 * {
-    lines: 15;
-    columns: 1;
-    background-color: #00000065;
-    border-color: #00000000;
-    text-color: #EFEFEF;
-    font: "Hack 11";
+  bg: #11121D;
+  bg-alt: #444b6a;
+
+  fg: #FFFFFF;
+  fg-alt: #787c99;
+
+  background-color: @bg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
- 
-#window {
-    border: 0;
-    border-radius: 4px;
-    padding: 30;
-    width: 40%;
-    height: 60%;
+
+window {
+  width: 30%;
 }
- 
-#mainbox {
-    background-color: #00000000;
-    children: [inputbar, listview];
-    spacing: 10px;
-    /*margin: 20%;*/
-    padding: 7px 0;
-    border: 1px;
-    border-color: @base0D;
+
+element {
+  padding: 8 0;
+  text-color: @fg-alt;
 }
- 
- 
-#listview {
-    background-color: #00000000;
-    fixed-height: 0;
-    border: 0px;
-    spacing: 5px;
-    scrollbar: false;
-    padding: 10px 10px 0px;
+
+element selected {
+  text-color: @fg;
 }
- 
-#element {
-    background-color: #00000000;
-    border: 0;
-    border-radius: 15px;
-    padding: 3 0  3 4 ;
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
 }
- 
-#element selected {
-    background-color: #00a0e6;
-    text-color: #EFEFEF;
+
+element-icon {
+  size: 30;
 }
- 
- 
-#inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-    background-color: #00000000;
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
 }
- 
-#case-indicator {
-    background-color: #00000000;
-    spacing:    0;
+
+inputbar {
+  children: [prompt, entry];
 }
-#entry {
-    background-color: #00000000;
-    spacing:    0;
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
 }
-#prompt {
-    background-color: #00000000;
-    spacing:    0;
+
+mainbox {
+  background-color: @bg;
+  children: [inputbar, listview];
 }
- 
-#textbox-prompt-colon {
-    background-color: #00000000;
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
 }
+
+/* vim: ft=sass

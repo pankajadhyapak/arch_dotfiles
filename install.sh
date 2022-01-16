@@ -45,6 +45,7 @@ ln -s "$DOTFILES/.xinitrc" "$HOME"
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
 ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
+
 # ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 rm -rf "$XDG_CONFIG_HOME/zsh/plugins"
 ln -sf "$DOTFILES/zsh/plugins" "$XDG_CONFIG_HOME/zsh"
@@ -52,6 +53,10 @@ ln -sf "$DOTFILES/zsh/plugins" "$XDG_CONFIG_HOME/zsh"
 # Screenshot
 
 mkdir -p "$HOME/Pictures/screenshots"
+mkdir -p "$HOME/.local/bin"
+
+ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
+chmod +x -R "$HOME/.local/bin/scripts"
 
 # wallpapers
 cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
