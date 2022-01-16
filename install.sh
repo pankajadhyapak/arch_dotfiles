@@ -50,3 +50,12 @@ rm -rf "$XDG_CONFIG_HOME/zsh/plugins"
 ln -sf "$DOTFILES/zsh/plugins" "$XDG_CONFIG_HOME/zsh"
 
 
+
+# wallpapers
+cp "$DOTFILES/wall.jpg" "$HOME/Pictures"
+betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
+
+
+# all done
+
+startx
