@@ -49,13 +49,15 @@ ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
 rm -rf "$XDG_CONFIG_HOME/zsh/plugins"
 ln -sf "$DOTFILES/zsh/plugins" "$XDG_CONFIG_HOME/zsh"
 
+# Screenshot
 
+mkdir -p "$HOME/Pictures/screenshots"
 
 # wallpapers
-cp "$DOTFILES/wall.jpg" "$HOME/Pictures"
+cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
 betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
 
 
 # all done
 
-startx
+echo "all done, reboot you system"
