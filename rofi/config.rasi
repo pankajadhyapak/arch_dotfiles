@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "JetBrainsMono Nerd Font Medium 10";
+  font: "FiraCode Nerd Font Medium 10";
   modi: "window,run,drun";
   show-icons:true;
 
@@ -11,14 +11,14 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #11121D;
-  bg-alt: #444b6a;
+  bg: #282828;
+  bg-alt: #ebdbb2;
 
-  fg: #FFFFFF;
-  fg-alt: #787c99;
+  fg: #272727;
+  fg-alt: #928373;
 
   background-color: @bg;
-  
+
   border: 0;
   margin: 0;
   padding: 0;
@@ -35,7 +35,7 @@ element {
 }
 
 element selected {
-  text-color: @fg;
+  text-color: @bg-alt;
 }
 
 element-text {
@@ -45,6 +45,7 @@ element-text {
 }
 
 element-icon {
+  padding: 0 6 0 0;
   size: 30;
 }
 
