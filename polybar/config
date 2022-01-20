@@ -1,19 +1,19 @@
 [colors]
-bg = #16161e
-bg-alt = #20212C
-fg = #acb0d0
-fg-alt = #5D5E72
+bg = #282828
+bg-alt = #282828
+fg = #ffffff
+fg-alt = #ebdbb2
 
-red = #ff7a93
+red = #cc241d
 
 trans = #00000000
 semi-trans-black = #cc000000
 
-shade-1 = #32344a
-shade-2 = #444b6a
-shade-3 = #787c99
-shade-4 = #CACACE
-shade-5 = #acb0d0
+shade-1 = #ebdbb2
+shade-2 = #ebdbb2
+shade-3 = #ebdbb2
+shade-4 = #ebdbb2
+shade-5 = #ebdbb2
 
 [bar/main]
 monitor = ${env:MONITOR:}
@@ -23,121 +23,46 @@ height = 25
 
 
 
-background = ${colors.bg}
-foreground = ${colors.fg}
+background = #272727
+foreground = #ffffff
 
-line-size = 2
-line-color = #fff
 
-padding-right = 0
+
+padding-right = 1
 
 
 module-margin = 1
-
-; Fonts are defined using <font-name>;<vertical-offset>
-; Font names are specified using a fontconfig pattern.
-;   font-0 = NotoSans-Regular:size=8;2
-;   font-1 = MaterialIcons:size=10
-;   font-2 = Termsynu:size=8;-1
-;   font-3 = FontAwesome:size=10
-; See the Fonts wiki page for more details
-# font-0 = Roboto:regular:size=9.5;3
-# font-1 = FontAwesome5Free:style=Solid:size=10;3
-# font-2 = unifont:size=10;3
-# font-3 = FontAwesome:style=Regular:size=15;3
-# font-4 = Font Awesome 5 Free Solid:size=15;3
-# font-5 = Font Awesome 5 Brands:size=15;3
 font-0 = FiraCode Nerd Font:size=8;3
 
-; Modules are added to one of the available blocks
-;   modules-left = cpu ram
-;   modules-center = xwindow xbacklight
-;   modules-right = ipc clock
-modules-left = i3 
+modules-left = i3
 modules-center = xwindow
-modules-right =  memory cpu battery date session 
+modules-right =  wireless-network memory cpu battery date
 
-; The separator will be inserted between the output of each module
-separator =
+separator = %{F#4f4f4f}|%{F-}
 
-; This value is used to add extra spacing between elements
-; @deprecated: This parameter will be removed in an upcoming version
 spacing = 0
 
-; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
 
-; Value to be used to set the WM_NAME atom
-; If the value is empty or undefined, the atom value
-; will be created from the following template: polybar-[BAR]_[MONITOR]
-; NOTE: The placeholders are not available for custom values
 wm-name = i3
 
-
-; Position of the system tray window
-; If empty or undefined, tray support will be disabled
-; NOTE: A center aligned tray will cover center aligned modules
-;
-; Available positions:
-;   left
-;   center
-;   right
-;   none
-tray-position = right
-
-; If true, the bar will not shift its
-; contents when the tray changes
+tray-position = ${env:TRAY_POS:}
 tray-detached = false
-
-; Tray icon max size
 tray-maxsize = 16
 
-; DEPRECATED! Since 3.3.0 the tray always uses pseudo-transparency
-; Enable pseudo transparency
-; Will automatically be enabled if a fully transparent
-; background color is defined using `tray-background`
-; tray-transparent = false
-
-; Background color for the tray container
-; ARGB color (e.g. #f00, #ff992a, #ddff1023)
-; By default the tray container will use the bar
-; background color.
 tray-background = ${root.background}
-
-; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
 tray-offset-x = 0
 tray-offset-y = 0
 
-; Pad the sides of each tray icon
-tray-padding = 2.0
+tray-padding = 4.0
 
-; Scale factor for tray clients
 tray-scale = 1.0
 
-; Restack the bar window and put it above the
-; selected window manager's root
-;
-; Fixes the issue where the bar is being drawn
-; on top of fullscreen window's
-;
-; Currently supported WM's:
-;   bspwm
-;   i3 (requires: `override-redirect = true`)
-; wm-restack =
 
-; Set a DPI values used when rendering text
-; This only affects scalable fonts
-; Set this to 0 to let polybar calculate the dpi from the screen size.
-; dpi =
 dpi-x = 135
 dpi-y = 135
 
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
 enable-ipc = false
-
-; Fallback click handlers that will be called if
-; there's no matching module handler found.
 
 [module/xwindow]
 type = internal/xwindow
@@ -192,9 +117,9 @@ label-unfocused-padding = 1
 label-unfocused-foreground =${colors.shade-3}
 
 label-focused = %index%
-label-focused-background = ${colors.shade-5}
+label-focused-background = #ebdbb2
 label-focused-padding = 1
-label-focused-foreground = ${colors.shade-1}
+label-focused-foreground = #1d2021
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
@@ -220,24 +145,20 @@ time = %I:%M
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
 
-label =%date% %time% 
+label =%date% %time%
 label-font = 0
-label-foreground = ${colors.fg}
+label-foreground = #ffffff
 
 [module/wireless-network]
 type = internal/network
-interface = wlp2s0
+interface = wlp0s20f3
 
 label-connected = %essid%
 format-connected = <ramp-signal>
-label-connected-foreground = #A3BE8C
+label-connected-foreground = #ffffff
 
-format-disconnected = <label-disconnected>
-label-disconnected = Not connected
-label-disconnected-foreground = #C33027
-label-disconnected-background = #2E3440
 
-ramp-signal-foreground = #A3BE8C
+ramp-signal-foreground = #ffffff
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -254,7 +175,7 @@ interval = 0.5
 
 label =  %percentage:2%%
 
-label-foreground = ${colors.fg}
+label-foreground = #ffffff
 
 [module/memory]
 type = internal/memory
@@ -284,45 +205,8 @@ format = <label>
 
 label =  %gb_used%
 
-label-foreground = ${colors.fg}
+label-foreground = #ffffff
 
-[module/temperature]
-type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
-
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
-warn-temperature = 80
-
-format = <label>
-
-; Available tags:
-;   <label-warn> (default)
-;   <ramp>
-
-; Available tokens:
-;   %temperature% (deprecated)
-;   %temperature-c%   (default, temperature in °C)
-;   %temperature-f%   (temperature in °F)
-label =  %temperature-c%
-
-label-foreground = #BF616A
 
 [module/battery]
 type = internal/battery
@@ -377,7 +261,7 @@ format-full = <ramp-capacity>  <label-full>
 ;   %consumption% (shows current charge rate in watts)
 label-charging = %percentage:2%%
 
-label-charging-foreground =${colors.fg}
+label-charging-foreground =#ffffff
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
@@ -386,13 +270,13 @@ label-charging-foreground =${colors.fg}
 ;   %consumption% (shows current discharge rate in watts)
 label-discharging = %percentage:2%%
 
-label-discharging-foreground = #A7A9AC
+label-discharging-foreground = #ffffff
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw% (unreleased)
 label-full = %percentage:2%%
-label-full-foreground = #A3BE8C
+label-full-foreground = #ffffff
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -400,7 +284,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = #A7A9AC
+ramp-capacity-foreground = #ffffff
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -411,7 +295,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = #A3BE8C
+animation-charging-foreground = #b8bb26
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -421,120 +305,14 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-foreground = #DCA060
+animation-discharging-foreground = #fe8019
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
 
 
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
 
 [module/session]
 type = custom/text
-
 click-left = powermenu
-content = %{T4} %{T-}
-content-background = ${colors.shade-2}
-content-foreground = ${colors.shade-5}
-content-padding = 1
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-2 = lock
-menu-0-2-exec = menu-open-3
-
-menu-3-0 = cancel
-menu-3-0-exec = menu-open-0
-menu-3-1 = lock
-menu-3-1-exec = betterlockscreen -l blur 
-
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-[module/decor-glyph]
-type = custom/text
-content-foreground = ${colors.fg}
-margin = 0
-
-[module/sep]
-inherit = module/decor-glyph
-content = "/"
+content = 
+content-foreground = #ffffff
