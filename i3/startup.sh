@@ -4,6 +4,12 @@ autorandr -c
 
 blueman-applet &
 
-picom &
+picom --experimental-backends &
 
-redshift &
+pasystray &
+
+
+setxkbmap -option caps:escape
+
+
+#redshift &

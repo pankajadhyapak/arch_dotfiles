@@ -1,11 +1,12 @@
 set $mod Mod4
 
+#remove borders
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
-
+gaps inner 0
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font 8
+font pango:Hack Nerd Font 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -40,21 +41,27 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# screenshot 
+# screenshot
 
 bindsym $mod+Control+4 exec screenshot window
 bindsym --release $mod+Control+3 exec screenshot select
+bindsym $mod+p exec powermenu
 
-#calculator 
+bindsym $mod+Shift+a exec --no-startup-id autorandr -c
+
+
+#calculator
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -modi "window#run#ssh" -show drun
-bindsym $mod+Tab exec rofi -show window run
+#bindsym $mod+Tab exec rofi -show window run
+bindsym $mod+Tab workspace back_and_forth
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -79,6 +86,9 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
+
+# bindsym --release $mod+Shift+p exec --no-startup-id /usr/bin/roficlip
+bindsym --release $mod+Shift+p exec roficlip
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -124,6 +134,42 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+
+# for temp
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-3
+workspace $ws7 output DP-3
+workspace $ws8 output DP-3
+workspace $ws9 output DP-3
+workspace $ws10 output DP-3
+
+
+# assign apps to workspaces
+
+#1. browser
+assign [class="kitty" instance="main"]  →  $ws1
+assign [class="Google-chrome" instance="google-chrome"]  →  $ws2
+assign [class="Code" instance="code"] → $ws3
+
+assign [class="jetbrains-goland" instance="jetbrains-goland"] → $ws4
+assign [class="jetbrains-phpstorm" instance="jetbrains-phpstorm"] → $ws4
+
+assign [class="Slack" instance="slack"] → $ws7
+assign [class="GitHub Desktop" instance="github desktop"] → $ws8
+assign [class="Mailspring" instance="mailspring"] → $ws9
+
+
+# startup applications
+exec --no-startup-id kitty --name="main"
+#exec --no-startup-id st-tabbed
+exec --no-startup-id /opt/google/chrome/google-chrome
+exec --no-startup-id code
+exec --no-startup-id slack
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -160,8 +206,52 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-# Example of defining a floating window
+
+# floating apps
 for_window [class="Arandr"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
+
+for_window [workspace=$ws4] layout stacked
+
+## set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+set $white #ffffff
+
+# client.focused          #d79921 #d79921 $white #d79921 #d79921
+# client.focused_inactive #1d2021 #1d2021 #d79921 #b16286 #1d2021
+# client.unfocused        #1d2021 #1d2021 #d79921 #b16286 #1d2021
+# client.urgent           #282828 #282828 $FFFFFF #282828 #282828
+
+
+## green gruvbox
+## class                 border|backgr|text|indicator|child_border
+# client.focused          $green $green $darkgray $purple $darkgray
+client.focused          $yellow $yellow $white $yellow $yellow
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+# Example of defining a floating window
+for_window [class="scratchpad-st"] floating enable
+for_window [class="scratchpad-st"] move scratchpad
+
+
+bindsym $mod+Shift+s [class="scratchpad-st"] scratchpad show; [class="scratchpad-st"] move position center
+# bindsym $mod+Shift+t exec --no-startup-id st -n="scratchpad-st" -e nvim ~/org/$(date +"%d_%m_%Y").org
+exec --no-startup-id st -c "scratchpad-st" -g 120x40 nvim ~/org/$(date +"%d_%m_%Y").org
+bindsym $MOD+Shift+t exec --no-startup-id st -c "scratchpad-st" -g 120x40  nvim "org"
+
+
+# bindsym $mod+Shift+a exec --no-startup-id st -n="scratchpad-st" -e nvim ~/org/123.org
 
 
 # resize window (you can also use the mouse for that)
@@ -192,10 +282,32 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 # Startups
 exec --no-startup-id sh ~/.config/i3/startup.sh
-exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/wall.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/wall.png
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec --no-startup-id clipster -d
+
+
+
+# bar {
+#         position top
+#         font pango:FiraCode Nerd Font 10
+
+#         status_command i3status -c ~/.config/i3/i3status.conf
+#           colors {
+#                 # bar background color
+#                 background $bg
+#                 statusline $white
+
+#                 #                    border  backgr. text
+#                 focused_workspace    #ebdbb2 #ebdbb2 $darkgray
+#                 inactive_workspace   $darkgray $darkgray $white
+#                 active_workspace     $darkgray $darkgray $white
+#                 urgent_workspace     $red $red $bg
+#     }
+
+# }
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

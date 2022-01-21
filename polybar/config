@@ -1,7 +1,7 @@
 [colors]
 bg = #282828
 bg-alt = #282828
-fg = #ffffff
+fg = #bdae93
 fg-alt = #ebdbb2
 
 red = #cc241d
@@ -24,7 +24,7 @@ height = 25
 
 
 background = #272727
-foreground = #ffffff
+foreground = #bdae93
 
 
 
@@ -32,7 +32,7 @@ padding-right = 1
 
 
 module-margin = 1
-font-0 = FiraCode Nerd Font:size=8;3
+font-0 = Hack Nerd Font:size=8;3
 
 modules-left = i3
 modules-center = xwindow
@@ -117,7 +117,7 @@ label-unfocused-padding = 1
 label-unfocused-foreground =${colors.shade-3}
 
 label-focused = %index%
-label-focused-background = #ebdbb2
+label-focused-background = #98971a
 label-focused-padding = 1
 label-focused-foreground = #1d2021
 
@@ -147,7 +147,7 @@ time-alt = %H:%M:%S
 
 label =%date% %time%
 label-font = 0
-label-foreground = #ffffff
+label-foreground = #bdae93
 
 [module/wireless-network]
 type = internal/network
@@ -155,10 +155,10 @@ interface = wlp0s20f3
 
 label-connected = %essid%
 format-connected = <ramp-signal>
-label-connected-foreground = #ffffff
+label-connected-foreground = #bdae93
 
 
-ramp-signal-foreground = #ffffff
+ramp-signal-foreground = #bdae93
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -175,7 +175,7 @@ interval = 0.5
 
 label =  %percentage:2%%
 
-label-foreground = #ffffff
+label-foreground = #bdae93
 
 [module/memory]
 type = internal/memory
@@ -205,7 +205,7 @@ format = <label>
 
 label =  %gb_used%
 
-label-foreground = #ffffff
+label-foreground = #bdae93
 
 
 [module/battery]
@@ -261,7 +261,7 @@ format-full = <ramp-capacity>  <label-full>
 ;   %consumption% (shows current charge rate in watts)
 label-charging = %percentage:2%%
 
-label-charging-foreground =#ffffff
+label-charging-foreground =#bdae93
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
@@ -270,13 +270,13 @@ label-charging-foreground =#ffffff
 ;   %consumption% (shows current discharge rate in watts)
 label-discharging = %percentage:2%%
 
-label-discharging-foreground = #ffffff
+label-discharging-foreground = #bdae93
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw% (unreleased)
 label-full = %percentage:2%%
-label-full-foreground = #ffffff
+label-full-foreground = #bdae93
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -284,7 +284,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = #ffffff
+ramp-capacity-foreground = #bdae93
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -315,4 +315,4 @@ animation-discharging-framerate = 500
 type = custom/text
 click-left = powermenu
 content = 
-content-foreground = #ffffff
+content-foreground = #bdae93
