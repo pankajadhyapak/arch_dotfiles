@@ -22,9 +22,9 @@ do
     fi
 done
 
+echo "Installing yay apps"
 
 yay -S --noconfirm --needed - < $DOTFILES/apps/yay.txt
-
 
 # nvim
 mkdir -p "$XDG_CONFIG_HOME/nvim"
