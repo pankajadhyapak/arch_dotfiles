@@ -7,7 +7,7 @@ mkdir -p "$HOME/Pictures/screenshots"
 # Install apps
 cat $DOTFILES/apps/pacman.txt | while read line
 do
-    echo "INSTALLING: ${line}"
+   echo "INSTALLING: ${line}"
    sudo pacman -S --noconfirm --needed ${line}
 done
 
@@ -58,7 +58,7 @@ rm -rf "$XDG_CONFIG_HOME/zsh/plugins"
 ln -sf "$DOTFILES/zsh/plugins" "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/aliases.zsh" "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 
-
+mkdir -p "$HOME/.local/bin"
 ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
 chmod +x -R "$HOME/.local/bin/scripts"
 
@@ -68,7 +68,7 @@ betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
 
 
 groupadd docker
-gpasswd -a "${whoami}" docker
+gpasswd -a "$(whoami)" docker
 systemctl enable docker.service
 
 # install st
