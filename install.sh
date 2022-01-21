@@ -9,6 +9,17 @@ cat $DOTFILES/apps/pacman.txt | while read line
 do
    echo "INSTALLING: ${line}"
    sudo pacman -S --noconfirm --needed ${line}
+
+    if [ "$line" = "docker" ]; then
+        groupadd docker
+        gpasswd -a $(whoami) docker
+        systemctl enable docker.service
+    fi
+
+
+    if [ "$line" = "mariadb" ]; then
+        mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+    fi
 done
 
 
@@ -66,10 +77,6 @@ chmod +x -R "$HOME/.local/bin/scripts"
 cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
 betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
 
-
-groupadd docker
-gpasswd -a "$(whoami)" docker
-systemctl enable docker.service
 
 # install st
 git clone https://github.com/LukeSmithxyz/st "$HOME/.local/st"

@@ -18,12 +18,8 @@ nerd-fonts-hack
 phpstan
 picom-tryone-git
 polybar
-python-pulsectl
-roficlip
 shellcheck-bin
 simple-mtpfs
 slack-desktop
-v4l2ucp
 vimix-cursors
 visual-studio-code-bin
-xf86-input-mtrack

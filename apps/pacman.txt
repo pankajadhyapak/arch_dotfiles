@@ -17,7 +17,6 @@ composer
 cowsay
 ctags
 dialog
-diff-so-fancy
 docker
 docker-compose
 duf
@@ -126,7 +125,6 @@ xclip
 xdg-user-dirs
 xf86-input-synaptics
 xf86-video-vesa
-xfce4-notifyd
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
