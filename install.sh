@@ -1,5 +1,17 @@
 #!/bin/bash
 
+
+# Install apps
+cat $DOTFILES/apps/pacman.txt | while read line
+do
+    echo "INSTALLING: ${line}"
+   sudo pacman -S --noconfirm --needed ${line}
+done
+
+
+yay -S --noconfirm --needed - < $DOTFILES/apps/yay.txt
+
+
 ########
 # nvim #
 ########
