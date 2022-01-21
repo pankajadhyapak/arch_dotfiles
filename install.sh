@@ -3,7 +3,6 @@
 
 # Screenshot
 mkdir -p "$HOME/Pictures/screenshots"
-mkdir -p "$HOME/.local/bin"
 
 # Install apps
 cat $DOTFILES/apps/pacman.txt | while read line
@@ -68,9 +67,13 @@ cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
 betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
 
 
+groupadd docker
+gpasswd -a "${whoami}" docker
+systemctl enable docker.service
+
 # install st
-git clone https://github.com/LukeSmithxyz/st "$HOME/.local"
-cd "$HOME/.local"
+git clone https://github.com/LukeSmithxyz/st "$HOME/.local/st"
+cd "$HOME/.local/st"
 sudo make clean install
 
 # all done
