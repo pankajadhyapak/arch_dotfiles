@@ -24,7 +24,13 @@ done
 
 echo "Installing yay apps"
 
-yay -S --noconfirm --needed - < $DOTFILES/apps/yay.txt
+# Install apps
+cat $DOTFILES/apps/yay.txt | while read line
+do
+   echo "INSTALLING: ${line}"
+   yay -S --noconfirm --needed ${line}
+done
+
 
 # nvim
 mkdir -p "$XDG_CONFIG_HOME/nvim"
