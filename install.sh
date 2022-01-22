@@ -43,7 +43,8 @@ ln -s "$DOTFILES/composer/composer.json" "$XDG_CONFIG_HOME/composer/composer.jso
 composer global install
 
 # nvim
-mkdir -p "$XDG_CONFIG_HOME/nvim"
+rm -rf "$XDG_CONFIG_HOME/nvim"
+ln -s "$DOTFILES/nvim" "$XDG_CONFIG_HOME"
 
 #vscode
 mkdir -p "$XDG_CONFIG_HOME/Code/User"
