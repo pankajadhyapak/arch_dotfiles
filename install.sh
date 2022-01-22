@@ -31,8 +31,6 @@ do
    yay -S --noconfirm --needed ${line}
 done
 
-#disable hdmi audio output
-echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
 
 #install global go deps
 go install mvdan.cc/gofumpt@latest
@@ -124,5 +122,4 @@ cd "$HOME/.local/st"
 sudo make clean install
 
 # all done
-
 echo "all done, reboot you system"
