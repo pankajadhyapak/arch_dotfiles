@@ -280,9 +280,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
 # Startups
 exec --no-startup-id sh ~/.config/i3/startup.sh
-exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/wall.png
+exec --no-startup-id set-wallpaper
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet

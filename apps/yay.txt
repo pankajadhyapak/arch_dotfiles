@@ -1,3 +1,4 @@
+bcm20702a1-firmware
 beekeeper-studio-bin
 betterlockscreen
 boxes
@@ -5,6 +6,8 @@ caffeine-ng
 clipster-git
 downgrader-git
 github-desktop-bin
+goland
+goland-jre
 golangci-lint
 google-chrome
 gruvbox-material-gtk-theme-git
@@ -16,10 +19,15 @@ mailspring
 nerd-fonts-fira-code
 nerd-fonts-hack
 phpstan
+phpstorm
+phpstorm-jre
 picom-tryone-git
 polybar
+python-pulsectl
 shellcheck-bin
 simple-mtpfs
 slack-desktop
 vimix-cursors
 visual-studio-code-bin
+xf86-input-mtrack
+yay

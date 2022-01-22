@@ -1,0 +1,18 @@
+{
+    "config": {
+      "prestissimo": {
+        "maxConnections": 8,
+        "minConnections": 3
+      }
+    },
+    "minimum-stability": "dev",
+    "require": {
+      "friendsofphp/php-cs-fixer": "@stable",
+      "phpstan/phpstan": "@stable",
+      "spatie/phpunit-watcher": "@stable",
+      "laravel/installer": "@stable",
+      "laravel/valet": "@stable",
+      "psy/psysh": "@stable"
+    },
+    "require-dev": {}
+  }
