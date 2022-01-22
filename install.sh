@@ -14,7 +14,6 @@ do
         groupadd docker
         sudo gpasswd -a $(whoami) docker
         sudo systemctl enable docker.service
-        sudo chmod 666 /var/run/docker.sock
     fi
 
 
@@ -33,7 +32,7 @@ do
 done
 
 #disable hdmi audio output
-sudo echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
+echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
 
 #install global go deps
 go install mvdan.cc/gofumpt@latest
@@ -41,15 +40,15 @@ go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/segmentio/golines@latest
 
 # install PHP deps
-rm -rf "$XDG_CONFIG_HOME/composer"
-ln -s "$DOTFILES/composer" "$XDG_CONFIG_HOME/composer"
+mkdir -p "$XDG_CONFIG_HOME/composer"
+ln -s "$DOTFILES/composer/composer.json" "$XDG_CONFIG_HOME/composer/composer.json"
 composer global install
 
 # nvim
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 
 #vscode
-rm -rf "$XDG_CONFIG_HOME/Code/User/settings.json"
+mkdir -p "$XDG_CONFIG_HOME/Code/User"
 ln -s "$DOTFILES/vscode.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
 
 #autorandr
@@ -57,8 +56,8 @@ rm -rf "$XDG_CONFIG_HOME/autorandr"
 ln -s "$DOTFILES/autorandr" "$XDG_CONFIG_HOME"
 
 #caffine
-rm -rf "$XDG_CONFIG_HOME/caffine"
-ln -s "$DOTFILES/caffine" "$XDG_CONFIG_HOME"
+rm -rf "$XDG_CONFIG_HOME/caffeine"
+ln -s "$DOTFILES/caffeine" "$XDG_CONFIG_HOME"
 
 #gitconfig
 ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
