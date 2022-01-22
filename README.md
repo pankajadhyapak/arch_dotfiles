@@ -16,10 +16,11 @@ echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
 ```
 
 ### Update installed packages
+
 ```bash
 pacman -Qqen > "$DOTFILES/apps/pacman.txt"
 ```
 
 ```bash
- pacman -Qqm > "$DOTFILES/apps/yay.txt"
+pacman -Qqm > "$DOTFILES/apps/yay.txt"
 ```
