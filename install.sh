@@ -12,8 +12,9 @@ do
 
     if [ "$line" = "docker" ]; then
         groupadd docker
-        gpasswd -a $(whoami) docker
-        systemctl enable docker.service
+        sudo gpasswd -a $(whoami) docker
+        sudo systemctl enable docker.service
+        sudo chmod 666 /var/run/docker.sock
     fi
 
 
@@ -31,6 +32,8 @@ do
    yay -S --noconfirm --needed ${line}
 done
 
+#disable hdmi audio output
+sudo echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
 
 #install global go deps
 go install mvdan.cc/gofumpt@latest
@@ -39,9 +42,7 @@ go install github.com/segmentio/golines@latest
 
 # install PHP deps
 rm -rf "$XDG_CONFIG_HOME/composer"
-ln -s "$DOTFILES/composer/composer.json" "$XDG_CONFIG_HOME/composer/composer.json"
-
-
+ln -s "$DOTFILES/composer" "$XDG_CONFIG_HOME/composer"
 composer global install
 
 # nvim
@@ -67,30 +68,37 @@ ln -sf "$DOTFILES/git/gitignore" "$HOME/.gitignore"
 rm -rf "$XDG_CONFIG_HOME/i3"
 ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 
+#gtk theme
 rm -rf "$XDG_CONFIG_HOME/gtk-3.0"
 ln -s "$DOTFILES/gtk-3.0" "$XDG_CONFIG_HOME"
 
+#kitty
 rm -rf "$XDG_CONFIG_HOME/kitty"
 ln -s "$DOTFILES/kitty" "$XDG_CONFIG_HOME"
 
+#picom
 rm -rf "$XDG_CONFIG_HOME/picom"
 ln -s "$DOTFILES/picom" "$XDG_CONFIG_HOME"
 
+#polybar
 rm -rf "$XDG_CONFIG_HOME/polybar"
 ln -s "$DOTFILES/polybar" "$XDG_CONFIG_HOME"
 
-
+#redshift
 rm -rf "$XDG_CONFIG_HOME/redshift"
 ln -s "$DOTFILES/redshift" "$XDG_CONFIG_HOME"
 
+#rofi
 rm -rf "$XDG_CONFIG_HOME/rofi"
 ln -s "$DOTFILES/rofi" "$XDG_CONFIG_HOME"
 
+#dunst
 mkdir -p "$XDG_CONFIG_HOME/dunst"
 ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
 
-
+# X
 ln -s "$DOTFILES/.xinitrc" "$HOME"
+ln -s "$DOTFILES/.Xresources" "$HOME"
 
 # Zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
@@ -107,8 +115,8 @@ ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
 chmod +x -R "$HOME/.local/bin/scripts"
 
 # wallpapers
-cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
-betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
+cp "$DOTFILES/wall.png" "$HOME/Pictures/wall.png"
+betterlockscreen -u "$HOME/Pictures/wall.png" --blur 0.5
 
 
 # install st
