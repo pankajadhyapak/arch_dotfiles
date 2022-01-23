@@ -1,36 +1,11 @@
 #!/bin/bash
 
+# install apps
+bash $DOTFILES/apps/install.sh
+
 
 # Screenshot
 mkdir -p "$HOME/Pictures/screenshots"
-
-# Install apps
-cat $DOTFILES/apps/pacman.txt | while read line
-do
-   echo "INSTALLING: ${line}"
-   sudo pacman -S --noconfirm --needed ${line}
-
-    if [ "$line" = "docker" ]; then
-        groupadd docker
-        sudo gpasswd -a $(whoami) docker
-        sudo systemctl enable docker.service
-    fi
-
-
-    if [ "$line" = "mariadb" ]; then
-        mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-    fi
-done
-
-echo "Installing yay apps"
-
-# Install apps
-cat $DOTFILES/apps/yay.txt | while read line
-do
-   echo "INSTALLING: ${line}"
-   yay -S --noconfirm --needed ${line}
-done
-
 
 #install global go deps
 go install mvdan.cc/gofumpt@latest
