@@ -1,0 +1,50 @@
+#!/bin/sh
+
+## autoload vcs and colors
+autoload -Uz vcs_info
+autoload -U colors && colors
+autoload -U add-zsh-hook
+
+# enable only git
+zstyle ':vcs_info:*' enable git
+
+
+prompt_precmd() {
+	# shows the full path in the title
+	print -Pn '\e]0;%~\a'
+}
+
+prompt_preexec() {
+	cmd_timestamp=$EPOCHSECONDS
+
+	# shows the current dir and executed command in the title when a process is active
+	print -Pn "\e]0;"
+	echo -nE "$PWD:t: $2"
+	print -Pn "\a"
+}
+add-zsh-hook precmd prompt_precmd
+add-zsh-hook preexec prompt_preexec
+
+# precmd() { vcs_info }
+
+precmd() {
+    vcs_info
+    if [[ -n ${vcs_info_msg_0_} ]]; then
+        # vcs_info found something (the documentation got that backwards
+        # STATUS line taken from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
+        STATUS=$(command git status --porcelain 2> /dev/null | tail -n1)
+        if [[ -n $STATUS ]]; then
+            # PROMPT='%F{7}%3~%f %F{red}${vcs_info_msg_0_} %f%# '
+            PROMPT='%{$fg[blue]%}%1~%{$fg[yellow]%}${vcs_info_msg_0_} %{$fg[red]%} %{$reset_color%}'
+
+        else
+            PROMPT='%{$fg[blue]%}%1~%{$fg[yellow]%}${vcs_info_msg_0_} %{$fg[green]%} %{$reset_color%}'
+        fi
+    else
+        # nothing from vcs_info
+        PROMPT='%{$fg[blue]%}%1~%{$fg[yellow]%}${vcs_info_msg_0_} %{$fg[white]%} %{$reset_color%}'
+    fi
+}
+
+setopt PROMPT_SUBST
+zstyle ':vcs_info:git:*' formats '  %b'
