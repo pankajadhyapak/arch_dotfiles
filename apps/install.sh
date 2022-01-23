@@ -14,7 +14,7 @@ do
 
 
     if [ "$app" = "mariadb" ]; then
-        mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+        sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     fi
 done
 
