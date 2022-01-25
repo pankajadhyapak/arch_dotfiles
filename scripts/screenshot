@@ -1,10 +1,7 @@
 #! /bin/sh
-output='/home/pankaj/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 
 case "$1" in
-	"select") maim -s | tee "$output" | xclip -selection clipboard -t image/png || exit ;;
-	"window") maim -i "$(xdotool getactivewindow)" | tee "$output" | xclip -selection clipboard -t image/png ||exit ;;
-	*) scrot "$output" --select || exit ;;
+	"select") flameshot gui || exit ;;
+	"window") flameshot screen -c ||exit ;;
+	*) flameshot gui || exit ;;
 esac
-
-notify-send "Screenshot taken."

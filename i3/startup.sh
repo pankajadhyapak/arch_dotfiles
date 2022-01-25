@@ -8,8 +8,18 @@ picom --experimental-backends &
 
 pasystray &
 
-
 setxkbmap -option caps:escape
 
+set-wallpaper &
 
-#redshift &
+parcellite &
+
+dunst &
+
+nm-applet &
+
+clipster -d &
+
+flameshot &
+
+# redshift &

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+choosen=$(\ls -d ~/.config/* | rev | awk -v FS='/' '{print $1}' | rev | rofi -dmenu -i 20 -p 'Edit Config')
+if [ "$choosen" ]; then
+    cfg=$(printf '%s/.config/%s\n' "$HOME" "$choosen" | awk '{print $NF}')
+    echo $cfg
+    kitty -e nvim "$cfg"
+fi

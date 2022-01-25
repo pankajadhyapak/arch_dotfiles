@@ -13,7 +13,7 @@ alias vim="nvim"
 alias gmv="go mod vendor"
 alias nc="n ~/.config"
 alias a="clear"
-alias history="history 0 |  fzf --layout=reverse --height 50% --tac"
+alias history="history 0 | sed 's/^[ ]*[0-9]\+[ ]*//' | fzf --layout=reverse --height 50% --tac | xclip -sel clip"
 # GIT
 # --------------------------------------------
 alias g="lazygit"
