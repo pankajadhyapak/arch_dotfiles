@@ -33,9 +33,19 @@ ln -s "$DOTFILES/autorandr" "$XDG_CONFIG_HOME"
 rm -rf "$XDG_CONFIG_HOME/caffeine"
 ln -s "$DOTFILES/caffeine" "$XDG_CONFIG_HOME"
 
+#bat
+rm -rf "$XDG_CONFIG_HOME/bat"
+ln -s "$DOTFILES/bat" "$XDG_CONFIG_HOME"
+
+#flameshot
+rm -rf "$XDG_CONFIG_HOME/flameshot"
+ln -s "$DOTFILES/flameshot" "$XDG_CONFIG_HOME"
+
+
 #gitconfig
-ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
+rm -rf "$HOME/.gitignore"
 ln -sf "$DOTFILES/git/gitignore" "$HOME/.gitignore"
+git config --global core.excludesFile  "$HOME/.gitignore"
 
 # i3
 rm -rf "$XDG_CONFIG_HOME/i3"
