@@ -86,11 +86,13 @@ ln -s "$DOTFILES/.Xresources" "$HOME"
 # Zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
-ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
+ln -sf "$DOTFILES/zsh/zshrc" "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/zsh-aliases" "$XDG_CONFIG_HOME/zsh/zsh-aliases"
 ln -sf "$DOTFILES/zsh/zsh-functions" "$XDG_CONFIG_HOME/zsh/zsh-functions"
 ln -sf "$DOTFILES/zsh/zsh-prompt" "$XDG_CONFIG_HOME/zsh/zsh-prompt"
 
+printf '#!/bin/zsh
+        source zshrc' > "$XDG_CONFIG_HOME/zsh/.zshrc"
 
 mkdir -p "$HOME/.local/bin"
 ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
