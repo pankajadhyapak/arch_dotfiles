@@ -52,7 +52,7 @@ bindsym $mod+Shift+a exec --no-startup-id autorandr -c
 
 #notifications
 bindsym Ctrl+BackSpace exec dunstctl history-pop
-#bindsym Ctrl+x exec dunstctl close-all
+bindsym Ctrl+q exec dunstctl close-all
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -156,12 +156,13 @@ bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2, exec --no-startup-id [ $(ps h -C chrome | wc -l) = 0 ] && /opt/google/chrome/google-chrome
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5, exec --no-startup-id [ $(ps h -C beekeeper-studio | wc -l) = 0 ] && beekeeper-studio
+bindsym $mod+5 workspace number $ws5, exec --no-startup-id [ $(ps h -C mysql-workbench | wc -l) = 0 ] && GTK_THEME=Adwaita mysql-workbench
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7, exec --no-startup-id [ $(ps h -C slack | wc -l) = 0 ] && slack
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9, exec --no-startup-id [ $(ps h -C mailspring | wc -l) = 0 ] && mailspring
 bindsym $mod+0 workspace number $ws10
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
