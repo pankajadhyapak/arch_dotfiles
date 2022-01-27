@@ -42,6 +42,7 @@ bindsym --release $mod+Control+3 exec screenshot select
 # Rofi custom menu's
 bindsym $mod+space exec --no-startup-id rofi -modi "window#run#ssh" -show drun
 bindsym $mod+p exec --no-startup-id powermenu
+bindsym $mod+n exec --no-startup-id wifimenu
 bindsym $mod+comma exec --no-startup-id confedit
 bindsym --release $mod+Shift+p exec roficlip
 

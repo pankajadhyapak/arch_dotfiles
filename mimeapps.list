@@ -1,0 +1,16 @@
+[Default Applications]
+image/jpeg=feh.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/mailspring=Mailspring.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+
+[Added Associations]
+image/jpeg=feh.desktop;google-chrome.desktop;
+image/png=feh.desktop;google-chrome.desktop;
+text/csv=visual-studio-code.desktop;libreoffice-calc.desktop;
+text/plain=visual-studio-code.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

@@ -20,4 +20,5 @@ clipster -d &
 
 flameshot &
 
+libinput-gestures &
 # redshift &

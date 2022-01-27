@@ -102,6 +102,15 @@ chmod +x -R "$HOME/.local/bin/scripts"
 cp "$DOTFILES/wall.png" "$HOME/Pictures/wall.png"
 betterlockscreen -u "$HOME/Pictures/wall.png" --blur 0.5
 
+# guestures
+rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"
+ln -sf "$DOTFILES/libinput-gestures.conf" "$XDG_CONFIG_HOME/libinput-gestures.conf"
+
+
+# mimeapps.list
+rm -rf "$XDG_CONFIG_HOME/mimeapps.list"
+ln -sf "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
+
 
 # install st
 git clone https://github.com/LukeSmithxyz/st "$HOME/.local/st"

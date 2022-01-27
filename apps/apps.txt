@@ -62,10 +62,13 @@ httpie
 i3-gaps
 i3status
 imagemagick
+insomnia-bin
+intel-ucode
 keepassxc
 kitty
 lazydocker
 lazygit
+libinput-gestures
 libreoffice-fresh
 libtool
 linux
@@ -146,6 +149,7 @@ xcape
 xclip
 xdg-user-dirs
 xf86-input-synaptics
+xf86-video-intel
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
