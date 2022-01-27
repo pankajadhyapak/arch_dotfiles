@@ -99,8 +99,8 @@ ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
 chmod +x -R "$HOME/.local/bin/scripts"
 
 # wallpapers
-cp "$DOTFILES/wall.png" "$HOME/Pictures/wall.png"
-betterlockscreen -u "$HOME/Pictures/wall.png" --blur 0.5
+cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
+betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
 
 # guestures
 rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"
