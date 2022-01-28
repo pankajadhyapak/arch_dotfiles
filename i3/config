@@ -1,8 +1,13 @@
 set $mod Mod4
 
+gaps inner 2
+gaps outer 0
+smart_gaps on
+new_window none
+
 # remove borders
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
+for_window [class="^.*"] border pixel 0
+#new_window 1pixel
 font pango:Hack Nerd Font 8
 
 
@@ -39,7 +44,6 @@ bindsym $mod+p exec --no-startup-id powermenu
 bindsym $mod+n exec --no-startup-id wifimenu
 bindsym $mod+comma exec --no-startup-id confedit
 bindsym --release $mod+Shift+p exec roficlip
-
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 #bindsym $mod+Tab exec rofi -show window run
 
@@ -114,16 +118,16 @@ set $ws10 "10"
 
 
 # for temp
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
-workspace $ws6 output DP-3
-workspace $ws7 output DP-3
-workspace $ws8 output DP-3
-workspace $ws9 output DP-3
-workspace $ws10 output DP-3
+workspace $ws1 output DP1
+workspace $ws2 output DP1
+workspace $ws3 output DP1
+workspace $ws4 output DP1
+workspace $ws5 output DP1
+workspace $ws6 output DP3
+workspace $ws7 output DP3
+workspace $ws8 output DP3
+workspace $ws9 output DP3
+workspace $ws10 output DP3
 
 
 # assign apps to workspaces
@@ -184,7 +188,7 @@ for_window [window_role="task_dialog"] floating enable
 
 # floating apps
 for_window [class="Arandr"] floating enable
-for_window [class="Pavucontrol"] floating enable
+#for_window [class="Pavucontrol"] floating enable
 
 
 for_window [workspace=$ws4] layout stacked
@@ -255,12 +259,10 @@ bar {
     colors {
         background $bg
         statusline #ebdbb2
-
         #                    border  backgr. text
         focused_workspace    #ebdbb2 #ebdbb2 $darkgray
         inactive_workspace   $bg     $bg     $white
         active_workspace     $darkgray $darkgray $white
         urgent_workspace     $red $red $bg
     }
-
 }
