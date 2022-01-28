@@ -113,7 +113,6 @@ python-pip
 python-pynvim
 qtkeychain-qt5
 ranger
-redshift
 regexxer
 ripgrep
 rofi-calc
