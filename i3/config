@@ -217,7 +217,7 @@ for_window [class="scratchpad-st"] move scratchpad
 
 
 bindsym $mod+Shift+s [class="scratchpad-st"] scratchpad show; [class="scratchpad-st"] move position center
-exec --no-startup-id st -c "scratchpad-st" -g 120x40 nvim ~/org/$(date +"%d_%m_%Y").org
+exec --no-startup-id st -c "scratchpad-st" -g 120x40 nvim ~/Dropbox/arch_linux/org/$(date +"%d_%m_%Y").org
 bindsym $MOD+Shift+t exec --no-startup-id st -c "scratchpad-st" -g 120x40  nvim "org"
 
 # resize window (you can also use the mouse for that)
@@ -257,12 +257,12 @@ bar {
     tray_output primary
     status_command i3status -c ~/.config/i3/i3status.conf
     colors {
-        background $bg
-        statusline #ebdbb2
+        background #161320
+        statusline #F5E0DC
         #                    border  backgr. text
-        focused_workspace    #ebdbb2 #ebdbb2 $darkgray
-        inactive_workspace   $bg     $bg     $white
-        active_workspace     $darkgray $darkgray $white
-        urgent_workspace     $red $red $bg
+        focused_workspace    #ABE9B3 #ABE9B3 #161320
+        inactive_workspace   #161320 #161320 #D9E0EE
+        active_workspace     #161320 #161320 #D9E0EE
+        urgent_workspace     #F28FAD #F28FAD #161320
     }
 }

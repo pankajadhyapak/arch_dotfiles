@@ -11,11 +11,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #282828;
-  bg-alt: #ebdbb2;
+  bg: #161320;
+  bg-alt: #988BA2;
 
-  fg: #272727;
-  fg-alt: #928373;
+  fg: #1E1E2E;
+  fg-alt: #D9E0EE;
 
   background-color: @bg;
 

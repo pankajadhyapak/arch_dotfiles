@@ -1,4 +1,3 @@
 #! /bin/sh
 
-feh --no-fehbg --bg-fill set-wallpaper
-$HOME/.config/polybar/launch.sh
+set-wallpaper

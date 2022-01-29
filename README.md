@@ -18,9 +18,20 @@ echo "blacklist snd_hda_codec_hdmi" >  /etc/modprobe.d/blacklist.conf
 ### Update installed packages
 
 ```bash
-pacman -Qqen > "$DOTFILES/apps/pacman.txt"
+pacman -Qqe > "$DOTFILES/apps/apps.txt"
 ```
 
-```bash
-pacman -Qqm > "$DOTFILES/apps/yay.txt"
+### Trackpad
+```
+/etc/X11/xorg.conf.d/30-touchpad.conf
+```
+
+```
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection
 ```

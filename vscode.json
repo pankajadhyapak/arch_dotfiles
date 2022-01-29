@@ -1,8 +1,7 @@
 {
     "workbench.statusBar.visible": false,
-    "workbench.colorTheme": "Correia Gruvbox Theme",
     "editor.fontFamily": "Hack Nerd Font, Firacode Nerd Font",
-    "editor.lineHeight": 1.6,
+    "editor.lineHeight": 1.8,
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "editor.renderWhitespace": "none",
@@ -18,4 +17,5 @@
     "editor.fontSize": 15,
     "extensions.ignoreRecommendations": true,
     "editor.formatOnSave": false,
+    "workbench.colorTheme": "Catppuccin",
 }
