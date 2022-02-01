@@ -1,20 +1,17 @@
 set $mod Mod4
 
-gaps inner 2
-gaps outer 0
-smart_gaps on
-new_window none
-
-# remove borders
-for_window [class="^.*"] border pixel 0
-#new_window 1pixel
-font pango:Hack Nerd Font 8
+#borders
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+font Hack Nerd Font 8
 
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Startups
+exec --no-startup-id sh ~/.config/i3/startup.sh
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up
@@ -32,7 +29,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec st
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # screenshotp
 bindsym $mod+Control+4 exec screenshot window
@@ -47,7 +44,7 @@ bindsym --release $mod+Shift+p exec roficlip
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 #bindsym $mod+Tab exec rofi -show window run
 
-bindsym $mod+Shift+a exec --no-startup-id autorandr -c
+bindsym $mod+Shift+m exec --no-startup-id autorandr -c
 
 #notifications
 bindsym Ctrl+BackSpace exec dunstctl history-pop
@@ -123,11 +120,11 @@ workspace $ws2 output DP1
 workspace $ws3 output DP1
 workspace $ws4 output DP1
 workspace $ws5 output DP1
-workspace $ws6 output DP3
-workspace $ws7 output DP3
-workspace $ws8 output DP3
-workspace $ws9 output DP3
-workspace $ws10 output DP3
+workspace $ws6 output HDMI1
+workspace $ws7 output HDMI1
+workspace $ws8 output HDMI1
+workspace $ws9 output HDMI1
+workspace $ws10 output HDMI1
 
 
 # assign apps to workspaces
@@ -191,34 +188,39 @@ for_window [class="Arandr"] floating enable
 #for_window [class="Pavucontrol"] floating enable
 
 
-for_window [workspace=$ws4] layout stacked
+for_window [workspace=$ws4] layout tabbed
 
 ## set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-set $white #ffffff
+set $red #F28FAD
+set $primary #ABE9B3
+set $purple #F28FAD
+set $darkgray #161320
+set $white #D9E0EE
 
-
-client.focused          $yellow $yellow $white $yellow $yellow
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+## class                 border|backgr|text|indicator|child_border
+client.focused          $darkgray $darkgray $primary $primary $primary
+client.focused_inactive $darkgray $ $primary $purple $darkgray
+client.unfocused        $darkgray $darkgray $white $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 # Example of defining a floating window
-for_window [class="scratchpad-st"] floating enable
-for_window [class="scratchpad-st"] move scratchpad
+for_window [class="st-orgmode"] floating enable
+for_window [class="st-orgmode"] move scratchpad
 
 
-bindsym $mod+Shift+s [class="scratchpad-st"] scratchpad show; [class="scratchpad-st"] move position center
-exec --no-startup-id st -c "scratchpad-st" -g 120x40 nvim ~/Dropbox/arch_linux/org/$(date +"%d_%m_%Y").org
-bindsym $MOD+Shift+t exec --no-startup-id st -c "scratchpad-st" -g 120x40  nvim "org"
+bindsym $mod+Shift+s [class="st-orgmode"] scratchpad show; [class="st-orgmode"] move position center
+exec --no-startup-id st -c "st-orgmode" -g 60x40 newScratchpad
+bindsym Ctrl+Shift+s exec --no-startup-id st -c "st-orgmode" -g 120x40  newScratchpad
+
+
+for_window [class="st-terminal"] floating enable
+for_window [class="st-terminal"] move scratchpad
+
+
+bindsym $mod+Shift+a [class="st-terminal"] scratchpad show; [class="st-terminal"] move position center
+exec --no-startup-id st -c "st-terminal" -g 60x40
+bindsym Ctrl+Shift+a exec --no-startup-id st -c "st-terminal" -g 120x40
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -247,8 +249,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Startups
-exec --no-startup-id sh ~/.config/i3/startup.sh
 
 bar {
     position top

@@ -12,3 +12,54 @@ function zsh_add_plugin() {
         git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
     fi
 }
+
+
+
+function fd() {
+  preview="git diff $@ --color=always -- {-1} "
+  git diff $@ --name-only | fzf -m --ansi --layout=reverse --height 50% --tac --preview $preview | xclip -sel clip
+}
+
+
+function gb() {
+  git for-each-ref --sort=committerdate --format='%(refname:short)' | fzf -m --ansi --layout=reverse --height 50% --tac | xargs git switch
+}
+
+
+# Create a new directory and enter it
+function mkd() {
+   mkdir -p "$@" && cd "$@"
+}
+
+
+function weather() {
+   city="$1"
+
+   if [ -z "$city" ]; then
+      city="berlin"
+   fi
+
+   eval "curl http://wttr.in/${city}"
+}
+
+
+#  Commit everything
+function gc() {
+  commitMessage="$1"
+
+  if [ "$commitMessage" = "" ]; then
+     commitMessage="wip"
+  fi
+
+  git add .
+  eval "git commit -a -m '${commitMessage}'"
+}
+
+
+# function mdwm(){
+#   cd ~/.local/dwm
+#   sudo cp config.h config.h.bck
+#   sudo rm config.h
+#   sudo make
+#   sudo make clean install
+# }
