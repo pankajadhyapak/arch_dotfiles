@@ -93,7 +93,7 @@ mkfs.ext4 "${maindrive}"
 mkfs.fat -F32 "${bootdrive}"
 
 mount "${maindrive}" /mnt
-pacstrap /mnt base base-devel linux linux-lts linux-firmware
+pacstrap /mnt base base-devel linux linux-lts linux-firmware linux-firmware-bnx2x
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' arch_install.sh > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
