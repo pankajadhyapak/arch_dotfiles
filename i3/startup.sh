@@ -4,7 +4,7 @@ autorandr -c
 
 blueman-applet &
 
-picom &
+picom --experimental-backends &
 
 setxkbmap -option caps:escape
 

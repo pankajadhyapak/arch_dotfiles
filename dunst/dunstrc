@@ -16,7 +16,7 @@
     transparency = 0
     idle_threshold = 90
     monitor = 0
-    follow = keyboard
+    follow = none
     sticky_history = no
     line_height = 2
     separator_height = 2
@@ -26,7 +26,7 @@
     frame_width = 2
     frame_color = "#4A5057"
     startup_notification = false
-	browser = /usr/bin/brave -new-tab
+	browser = /opt/google/chrome/google-chrome -new-tab
 	stack_duplicates = false
 	hide_duplicate_count = yes
 	show_indicators = yes
@@ -37,10 +37,6 @@
 [frame]
     width = 1
     color = "#98971a"
-
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
 
 [urgency_low]
     background = "#202020"

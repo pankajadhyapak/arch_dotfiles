@@ -16,6 +16,7 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+bspwm
 caffeine-ng
 catppuccin-gtk-theme
 clipster-git
@@ -64,6 +65,7 @@ i3status
 imagemagick
 insomnia-bin
 intel-ucode
+jq
 keepassxc
 kitty
 lazydocker
@@ -106,12 +108,13 @@ patch
 pavucontrol
 phpstorm
 phpstorm-jre
-picom
+picom-ibhagwan-git
 pkgconf
 pulseaudio-bluetooth
 pv
 python-pip
 python-pynvim
+qalculate-gtk-nognome
 qtkeychain-qt5
 ranger
 regexxer
@@ -127,6 +130,7 @@ slack-desktop
 sof-firmware
 sublime-text-4
 sudo
+sxhkd
 terraform
 texinfo
 the_silver_searcher
@@ -136,6 +140,7 @@ tldr
 tmux
 tmuxp
 ttf-droid
+ttf-joypixels
 udiskie
 unclutter
 unrar
@@ -150,6 +155,7 @@ xcape
 xclip
 xdg-user-dirs
 xdg-utils
+xdo
 xf86-input-synaptics
 xf86-video-intel
 xf86-video-vesa
