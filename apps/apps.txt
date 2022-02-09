@@ -4,8 +4,10 @@ audacity
 autoconf
 automake
 autorandr
+base
 bat
 bc
+bcm20702a1-firmware
 beekeeper-studio-bin
 betterlockscreen
 binutils
@@ -71,6 +73,8 @@ lazygit
 libinput-gestures
 libreoffice-fresh
 libtool
+linux
+linux-firmware
 lsd-bin
 lxappearance
 ly
@@ -93,6 +97,9 @@ networkmanager
 nmap
 npm
 ntfs-3g
+nvidia
+opencl-nvidia
+os-prober
 p7zip
 pacman
 pamixer
@@ -124,8 +131,8 @@ sof-firmware
 sublime-text-4
 sudo
 sxhkd
-terraform
 texinfo
+tfenv
 the_silver_searcher
 tig
 time
@@ -151,6 +158,7 @@ xdg-utils
 xdo
 xf86-input-synaptics
 xf86-video-intel
+xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

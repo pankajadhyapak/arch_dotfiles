@@ -12,6 +12,7 @@ export VISUAL="nvim"
 export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/go/bin/:$PATH"
+export PATH="$XDG_DATA_HOME/gem/ruby/3.0.0/bin:$PATH"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
