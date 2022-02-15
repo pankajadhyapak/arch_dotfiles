@@ -26,7 +26,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec st
+bindsym $mod+Shift+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -217,19 +217,19 @@ client.unfocused        $darkgray $darkgray $white $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 # Scratchpad's
-for_window [class="Qalculate-gtk"] resize set 20 ppt 10 ppt
-for_window [class="st-orgmode"] floating enable
-for_window [class="st-orgmode"] move scratchpad
-bindsym $mod+Shift+s [class="st-orgmode"] scratchpad show; [class="st-orgmode"] move position center
-exec --no-startup-id st -c "st-orgmode" -g 120x40 newScratchpad
-bindsym $mod+Ctrl+s exec --no-startup-id st -c "st-orgmode"  newScratchpad
+for_window [instance="scp-orgmode"] resize set 20 ppt 10 ppt
+for_window [instance="scp-orgmode"] floating enable
+for_window [instance="scp-orgmode"] move scratchpad
+bindsym $mod+Shift+s [instance="scp-orgmode"] scratchpad show; [instance="scp-orgmode"] move position center
+exec --no-startup-id alacritty --class "scp-orgmode" -e newScratchpad
+bindsym $mod+Ctrl+s exec --no-startup-id  alacritty --class "scp-orgmode" -e newScratchpad
 
-for_window [class="Qalculate-gtk"] resize set 20 ppt 10 ppt
-for_window [class="st-terminal"] floating enable
-for_window [class="st-terminal"] move scratchpad
-bindsym $mod+Shift+a [class="st-terminal"] scratchpad show; [class="st-terminal"] move position center
-exec --no-startup-id st -c "st-terminal" -g 120x40
-bindsym $mod+Ctrl+a exec --no-startup-id st -c "st-terminal"
+for_window [instance="scp-terminal"] resize set 20 ppt 10 ppt
+for_window [instance="scp-terminal"] floating enable
+for_window [instance="scp-terminal"] move scratchpad
+bindsym $mod+Shift+a [instance="scp-terminal"] scratchpad show; [instance="scp-terminal"] move position center
+exec --no-startup-id alacritty --class "scp-terminal"
+bindsym $mod+Ctrl+a exec --no-startup-id alacritty --class "scp-terminal"
 
 
 for_window [class="Qalculate-gtk"] resize set 20 ppt 10 ppt

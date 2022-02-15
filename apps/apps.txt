@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 arandr
 audacity
@@ -73,6 +74,9 @@ lazygit
 libinput-gestures
 libreoffice-fresh
 libtool
+lightdm
+lightdm-settings
+lightdm-slick-greeter
 linux
 linux-firmware
 lsd-bin
