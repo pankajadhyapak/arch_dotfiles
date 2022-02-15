@@ -93,7 +93,7 @@ mkfs.ext4 "${maindrive}"
 mkfs.fat -F32 "${bootdrive}"
 
 mount "${maindrive}" /mnt
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware sof-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' arch_install.sh > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -156,7 +156,7 @@ echo "${3}:${4}" | chpasswd
 chsh -s "$(which zsh)" "${3}"
 echo "" > /home/${3}/.zshrc
 
-echo "Pre-Installation Finish, Installing yay now"
+echo "Base Installation Finished, Installing yay now"
 ai3_path=/home/${3}/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
 chown ${3}:${3} $ai3_path
