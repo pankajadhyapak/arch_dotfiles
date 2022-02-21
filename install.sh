@@ -50,6 +50,15 @@ git config --global core.excludesFile  "$HOME/.gitignore"
 rm -rf "$XDG_CONFIG_HOME/i3"
 ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 
+# bspwm
+rm -rf "$XDG_CONFIG_HOME/bspwm"
+ln -s "$DOTFILES/bspwm" "$XDG_CONFIG_HOME"
+chmod +x "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+
+# sxhkd
+rm -rf "$XDG_CONFIG_HOME/sxhkd"
+ln -s "$DOTFILES/sxhkd" "$XDG_CONFIG_HOME"
+
 #gtk theme
 rm -rf "$XDG_CONFIG_HOME/gtk-3.0"
 ln -s "$DOTFILES/gtk-3.0" "$XDG_CONFIG_HOME"
@@ -99,8 +108,8 @@ ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
 chmod +x -R "$HOME/.local/bin/scripts"
 
 # wallpapers
-cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall.jpg"
-betterlockscreen -u "$HOME/Pictures/wall.jpg" --blur 0.5
+cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall4.jpg"
+betterlockscreen -u "$HOME/Pictures/wall4.jpg" --blur 0.5
 
 # guestures
 rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"

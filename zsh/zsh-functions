@@ -56,10 +56,14 @@ function gc() {
 }
 
 
-# function mdwm(){
-#   cd ~/.local/dwm
-#   sudo cp config.h config.h.bck
-#   sudo rm config.h
-#   sudo make
-#   sudo make clean install
-# }
+function cleanarch(){
+  sudo pacman -Rsn $(pacman -Qdtq)
+}
+
+function mdwm(){
+  cd ~/.local/dwm
+  sudo cp config.h config.h.bck
+  sudo rm config.h
+  sudo make
+  sudo make clean install
+}

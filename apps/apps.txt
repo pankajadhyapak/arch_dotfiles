@@ -9,7 +9,6 @@ base
 bat
 bc
 bcm20702a1-firmware
-beekeeper-studio-bin
 betterlockscreen
 binutils
 bison
@@ -17,6 +16,7 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+bsp-layout
 bspwm
 caffeine-ng
 catppuccin-gtk-theme
@@ -24,6 +24,7 @@ clipster-git
 composer
 cowsay
 ctags
+cups
 dex
 dialog
 docker
@@ -46,6 +47,7 @@ gettext
 git
 github-desktop-bin
 gnome-keyring
+go
 go-tools
 goland
 goland-jre
@@ -61,7 +63,7 @@ gruvbox-material-icon-theme-git
 gzip
 htop
 httpie
-i3-wm
+i3-gaps
 i3status
 imagemagick
 insomnia-bin
@@ -81,7 +83,6 @@ linux
 linux-firmware
 lsd-bin
 lxappearance
-ly
 m4
 mailspring
 make
@@ -99,7 +100,9 @@ net-tools
 network-manager-applet
 networkmanager
 nmap
+noto-fonts-emoji
 npm
+nsxiv
 ntfs-3g
 nvidia
 opencl-nvidia
@@ -114,13 +117,16 @@ phpstorm
 phpstorm-jre
 picom-ibhagwan-git
 pkgconf
+polybar
+pulseaudio
+pulseaudio-alsa
 pulseaudio-bluetooth
 pv
 python-pip
 python-pynvim
-qalculate-gtk-nognome
 qtkeychain-qt5
 ranger
+redshift
 regexxer
 ripgrep
 rofi-calc
@@ -145,10 +151,12 @@ tmux
 tmuxp
 ttf-droid
 ttf-joypixels
+ttf-ms-fonts
 udiskie
 unclutter
 unrar
 unzip
+v4l-utils
 vimix-cursors
 vint
 visual-studio-code-bin

@@ -1,8 +1,12 @@
 set $mod Mod4
 
 #borders
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
+for_window [class=".*"] border pixel 1
+gaps inner 4
+gaps outer 0
+smart_gaps on
+
+# new_window 1pixel
 font pango:Hack Nerd Font 8
 
 
@@ -10,8 +14,6 @@ font pango:Hack Nerd Font 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec --no-startup-id dex --autostart --environment i3
 
-# Startups
-exec --no-startup-id sh ~/.config/i3/startup.sh
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up
@@ -32,8 +34,8 @@ bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+q kill
 
 # screenshotp
-bindsym $mod+Control+4 exec screenshot window
-bindsym --release $mod+Control+3 exec screenshot select
+bindsym Shift+Print exec screenshot window
+bindsym --release Print exec screenshot select
 
 # Rofi custom menu's
 bindsym $mod+space exec --no-startup-id rofi -modi "window#run#ssh" -show drun
@@ -125,18 +127,18 @@ set $ws9 "9"
 set $ws10 "10"
 
 # for temp
-workspace $ws1 output DP1
-workspace $ws2 output DP1
-workspace $ws3 output DP1
-workspace $ws4 output DP1
-workspace $ws5 output DP1
-workspace $ws6 output HDMI1
-workspace $ws7 output HDMI1
-workspace $ws8 output HDMI1
-workspace $ws9 output HDMI1
-workspace $ws10 output HDMI1
+workspace $ws1 output DP3
+workspace $ws2 output DP3
+workspace $ws3 output DP3
+workspace $ws4 output DP3
+workspace $ws5 output DP3
+workspace $ws6 output DP1
+workspace $ws7 output DP1
+workspace $ws8 output DP1
+workspace $ws9 output DP1
+workspace $ws10 output DP1
 
-
+# set $i3l vstack to workspace $ws1
 
 for_window [urgent="latest" class="Google-chrome"] focus
 
@@ -198,7 +200,8 @@ for_window [window_role="task_dialog"] floating enable
 
 # floating apps
 for_window [class="Arandr"] floating enable
-#for_window [class="Pavucontrol"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Org.gnome.Nautilus"] floating enable
 
 
 for_window [workspace=$ws4] layout tabbed
@@ -212,19 +215,19 @@ set $white #D9E0EE
 
 ## class                 border|backgr|text|indicator|child_border
 client.focused          $darkgray $darkgray $primary $primary $primary
-client.focused_inactive $darkgray $ $primary $purple $darkgray
+# client.focused_inactive $darkgray $darkgray $darkgray $darkgray
 client.unfocused        $darkgray $darkgray $white $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 # Scratchpad's
-for_window [instance="scp-orgmode"] resize set 20 ppt 10 ppt
+for_window [instance="scp-orgmode"] resize set 60 ppt 30 ppt
 for_window [instance="scp-orgmode"] floating enable
 for_window [instance="scp-orgmode"] move scratchpad
 bindsym $mod+Shift+s [instance="scp-orgmode"] scratchpad show; [instance="scp-orgmode"] move position center
 exec --no-startup-id alacritty --class "scp-orgmode" -e newScratchpad
 bindsym $mod+Ctrl+s exec --no-startup-id  alacritty --class "scp-orgmode" -e newScratchpad
 
-for_window [instance="scp-terminal"] resize set 20 ppt 10 ppt
+for_window [instance="scp-terminal"] resize set 60 ppt 20 ppt
 for_window [instance="scp-terminal"] floating enable
 for_window [instance="scp-terminal"] move scratchpad
 bindsym $mod+Shift+a [instance="scp-terminal"] scratchpad show; [instance="scp-terminal"] move position center
@@ -232,7 +235,7 @@ exec --no-startup-id alacritty --class "scp-terminal"
 bindsym $mod+Ctrl+a exec --no-startup-id alacritty --class "scp-terminal"
 
 
-for_window [class="Qalculate-gtk"] resize set 20 ppt 10 ppt
+for_window [class="Qalculate-gtk"] resize set 30 ppt 10 ppt
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Qalculate-gtk"] move scratchpad
 bindsym $mod+c [class="Qalculate-gtk"] scratchpad show; [class="Qalculate-gtk"] move position center

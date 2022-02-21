@@ -2,6 +2,35 @@
 
 if [ "$SHELL" = "/usr/bin/zsh" ]; then
     . ~/.zshenv
-    return
 fi
 
+dunst &
+
+autorandr -c
+
+sxhkd &
+
+setxkbmap -option caps:escape
+
+blueman-applet &
+
+picom --experimental-backends &
+
+set-wallpaper &
+
+parcellite &
+
+nm-applet &
+
+clipster -d &
+
+flameshot &
+
+libinput-gestures &
+
+# redshift &
+
+if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
+then
+ caffeine -a &
+fi

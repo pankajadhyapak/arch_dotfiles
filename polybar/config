@@ -1,164 +1,92 @@
 [colors]
-bg = #282828
-bg-alt = #282828
-fg = #bdae93
-fg-alt = #ebdbb2
-
-red = #cc241d
-
-trans = #00000000
-semi-trans-black = #cc000000
-
-shade-1 = #ebdbb2
-shade-2 = #ebdbb2
-shade-3 = #ebdbb2
-shade-4 = #ebdbb2
-shade-5 = #ebdbb2
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+foreground_dark = ${xrdb:background}
+foreground_disabled = ${xrdb:color0}
+urgent = ${xrdb:color9}
+focused = ${xrdb:color2}
+underline = ${xrdb:color3}
 
 [bar/main]
 monitor = ${env:MONITOR:}
 top = true
 width = 100%
 height = 25
-
-
-
-background = #272727
-foreground = #bdae93
-
-
-
+background = #aa1E1E2E
+foreground = ${colors.foreground}
 padding-right = 1
-
-
 module-margin = 1
-font-0 = Hack Nerd Font:size=8;3
-
-modules-left = i3
-modules-center = xwindow
-modules-right =  wireless-network memory cpu battery date
-
+font-0 = Hack Nerd Font:pixelsize=11;1
+font-1 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
+modules-left = bspwm xwindow
+modules-right = wheather pacman-packages wireless-network memory cpu battery date session
 separator = %{F#4f4f4f}|%{F-}
-
 spacing = 0
-
 dim-value = 1.0
-
-wm-name = i3
-
 tray-position = ${env:TRAY_POS:}
 tray-detached = false
 tray-maxsize = 16
-
 tray-background = ${root.background}
 tray-offset-x = 0
 tray-offset-y = 0
-
 tray-padding = 4.0
-
 tray-scale = 1.0
-
-
-dpi-x = 135
-dpi-y = 135
-
-enable-ipc = false
+enable-ipc = true
+wm-restack = bspwm
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title%
+format-foreground = ${colors.foreground}
 
+[module/bspwm]
+type = internal/bspwm
 
-[module/i3]
-type = internal/i3
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = true
-
-; This will split the workspace name on ':'
-; Default: false
-strip-wsnumbers = true
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
-index-sort = true
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
-enable-scroll = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
-wrapping-scroll = false
-
-; Set the scroll cycle direction
-; Default: true
-reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
-fuzzy-match = true
-
-label-unfocused = %index%
-label-unfocused-padding = 1
-label-unfocused-foreground =${colors.shade-3}
-
-label-focused = %index%
-label-focused-background = #98971a
+label-focused = %name%
+label-focused-background = ${colors.focused}
+label-focused-foreground= ${colors.foreground_dark}
 label-focused-padding = 1
-label-focused-foreground = #1d2021
 
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.red}
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%!
+label-urgent-background = ${colors.urgent}
 label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground_disabled}
+label-empty-padding = 1
+
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
 
 
 [module/date]
 type = internal/date
-
-; Seconds to sleep between updates
 interval = 1.0
-
-; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = %a, %d %b
-
-; Optional time format
 time = %I:%M
-
-; if `date-alt` or `time-alt` is defined, clicking
-; the module will toggle between formats
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
 
 label =%date% %time%
 label-font = 0
-label-foreground = #bdae93
+label-foreground = ${colors.foreground}
 
 [module/wireless-network]
 type = internal/network
 interface = wlp0s20f3
-
 label-connected = %essid%
 format-connected = <ramp-signal>
-label-connected-foreground = #bdae93
+label-connected-foreground = ${colors.foreground}
 
 
-ramp-signal-foreground = #bdae93
+ramp-signal-foreground = ${colors.foreground}
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -168,115 +96,33 @@ ramp-signal-5 = 
 
 [module/cpu]
 type = internal/cpu
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
+interval = 1
 label =  %percentage:2%%
-
-label-foreground = #bdae93
+label-foreground = ${colors.foreground}
 
 [module/memory]
 type = internal/memory
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
+interval = 1
 format = <label>
-
-; Available tokens:
-;   %percentage_used% (default)
-;   %percentage_free%
-;   %gb_used%
-;   %gb_free%
-;   %gb_total%
-;   %mb_used%
-;   %mb_free%
-;   %mb_total%
-;   %percentage_swap_used%
-;   %percentage_swap_free%
-;   %mb_swap_total%
-;   %mb_swap_free%
-;   %mb_swap_used%
-;   %gb_swap_total%
-;   %gb_swap_free%
-;   %gb_swap_used%
-
-label =  %gb_used%
-
-label-foreground = #bdae93
-
+label =  %percentage_used%%
+label-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-
 full-at = 99
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = AC
-
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
 poll-interval = 5
-
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-; Default: %H:%M:%S
 time-format = %H:%M
-
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
 format-charging = <animation-charging>  <label-charging>
-
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-discharging>
 format-discharging = <ramp-capacity>  <label-discharging>
-
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
 format-full = <ramp-capacity>  <label-full>
-
-; Available tokens:
-;   %percentage% (default) - is set to 100 if full-at is reached
-;   %percentage_raw% (unreleased)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
 label-charging = %percentage:2%%
-
-label-charging-foreground =#bdae93
-
-; Available tokens:
-;   %percentage% (default) - is set to 100 if full-at is reached
-;   %percentage_raw% (unreleased)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
+label-charging-foreground = ${colors.foreground}
 label-discharging = %percentage:2%%
-
-label-discharging-foreground = #bdae93
-
-; Available tokens:
-;   %percentage% (default) - is set to 100 if full-at is reached
-;   %percentage_raw% (unreleased)
+label-discharging-foreground = ${colors.foreground}
 label-full = %percentage:2%%
-label-full-foreground = #bdae93
+label-full-foreground = ${colors.foreground}
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -284,7 +130,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = #bdae93
+ramp-capacity-foreground = ${colors.foreground}
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -295,7 +141,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = #b8bb26
+animation-charging-foreground = ${colors.focused}
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -305,14 +151,27 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-foreground = #fe8019
+animation-discharging-foreground = ${colors.foreground}
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
-
-
 
 [module/session]
 type = custom/text
 click-left = powermenu
 content = 
-content-foreground = #bdae93
+content-foreground = ${colors.foreground}
+
+
+[module/pacman-packages]
+type = custom/script
+exec = sudo pacman -Qu | wc -l
+format-prefix = " "
+interval = 90
+content-foreground = ${colors.foreground}
+
+[module/wheather]
+type = custom/script
+exec = curl -s https://wttr.in/Berlin?format=%t
+format-prefix = "  "
+interval = 90
+content-foreground = ${colors.foreground}
