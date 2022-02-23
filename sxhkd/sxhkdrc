@@ -84,31 +84,31 @@ super + shift + {1-9,0}
 
 # fous desktop
 super + 1
-	bspc desktop -f 1
+	bspc desktop -f '^1'
 super + 2
-	bspc desktop -f 2; \
+	bspc desktop -f '^2'; \
 	[ $(xdotool search --class "Google-chrome" | wc -l) = 0 ] && /opt/google/chrome/google-chrome
 super + 3
-	bspc desktop -f 3; \
+	bspc desktop -f '^3'; \
 	[ $(xdotool search --class "Code" | wc -l) = 0 ] && /usr/bin/code
 super + 4
-	bspc desktop -f 4
+	bspc desktop -f '^4'
 super + 5
-	bspc desktop -f 5; \
+	bspc desktop -f '^5'; \
 	[ $(xdotool search --class "Mysql-workbench-bin" | wc -l) = 0 ] && GTK_THEME=Adwaita mysql-workbench
 super + 6
-	bspc desktop -f 6
+	bspc desktop -f '^6'
 super + 7
-	bspc desktop -f 7; \
+	bspc desktop -f '^7'; \
 	[ $(xdotool search --class "Slack" | wc -l) = 0 ] && slack
 super + 8
-	bspc desktop -f 8; \
+	bspc desktop -f '^8'; \
 	[ $(xdotool search --class "GitHub Desktop" | wc -l) = 0 ] && github-desktop
 super + 9
-	bspc desktop -f 9; \
+	bspc desktop -f '^9'; \
 	[ $(xdotool search --class "Mailspring" | wc -l) = 0 ] && mailspring
 super + 0
-	bspc desktop -f 10
+	bspc desktop -f '^10'
 
 # alternate between the tiled and monocle layout
 super + m
@@ -209,3 +209,17 @@ super + shift + f
 
 super + shift + w
 	toggleprogram "picom" "--experimental-backends"
+
+super + w; {h,j,k,l}
+	tabc add {west,south,north,east} $(bspc query -N -n focused)
+
+super + w; r
+	tabbed=$(bspc query-N -n focused); \
+	child=$(tabc list $tabbed |  head -n1); \
+	tabc remove $child
+
+alt + Tab
+	rofi -show window run
+
+super + apostrophe
+	autorandr -c; dunstify -h string:x-dunst-stack-tag:toggleprogram 'autorandr' 'Reloaded config'

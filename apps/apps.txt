@@ -111,6 +111,7 @@ p7zip
 pacman
 pamixer
 parcellite
+pasystray-gtk3-git
 patch
 pavucontrol
 phpstorm

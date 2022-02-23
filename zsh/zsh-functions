@@ -13,7 +13,14 @@ function zsh_add_plugin() {
     fi
 }
 
-
+function dropLine() {
+    file=${1}
+    pattern=${2}
+    lineNumber=$(grep -n -m 1 "$pattern" ${file} | cut -d : -f 1)
+    if [[ ! -z "$lineNumber" ]]; then
+        sed -i "${lineNumber}d" ${file}
+    fi
+}
 
 function fd() {
   preview="git diff $@ --color=always -- {-1} "

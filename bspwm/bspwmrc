@@ -1,12 +1,8 @@
 #! /bin/sh
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 sh "$HOME/.config/polybar/launch.sh" &
-
-#autostart
-sh "$HOME/.config/i3/startup.sh" &
 
 pgrep bspswallow || bspswallow &
 
@@ -55,8 +51,8 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action2 resize_corner
 
 #layouts
-bsp-layout set tall 1 -- --master-size 0.6
-bsp-layout set monocle 4
+bsp-layout set tall '^1' -- --master-size 0.6
+bsp-layout set monocle '^4'
 
 # 1 > terminal
 #bspc rule -a kittymain desktop='^1' follow=on
@@ -87,7 +83,7 @@ bspc rule -a '*:pop-up' state=floating
 
 # start terminal always
 if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
-    bspc desktop -f 1
+    bspc desktop -f '^1'
     kitty --class=kittymain &
 fi
 
