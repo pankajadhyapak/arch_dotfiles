@@ -27,6 +27,7 @@ ctags
 cups
 dex
 dialog
+dmenu
 docker
 docker-compose
 dropbox
