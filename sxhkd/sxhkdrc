@@ -1,8 +1,9 @@
 
-# terminal emulator
+# kitty terminal
 super + Return
 	kitty
 
+# alacritty terminal
 super + shift + Return
 	alacritty
 
@@ -10,50 +11,65 @@ super + shift + Return
 super + space
     rofi -modi "window#run#ssh" -show drun
 
-# make sxhkd reload its configuration files:
+# reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd; dunstify -h string:x-dunst-stack-tag:toggleprogram 'sxhkd' 'Reloaded config'
 
+# Screenshot select
 @Print
 	screenshot
 
+# Screenshot Window
 shift + @Print
 	screenshot window
 
-# brightness keys
+# brightness up
 XF86MonBrightnessUp
 	changebrightness up
 
+# brightness down
 XF86MonBrightnessDown
 	changebrightness down
 
-# volume keys
+# volume up
 XF86AudioRaiseVolume
 	changevolume up
 
+# volume down
 XF86AudioLowerVolume
 	changevolume down
 
+# volume mute
 XF86AudioMute
 	changevolume mute
 
+# Power Menu
 super + p
 	powermenu
 
+# Notification history
 control + BackSpace
 	dunstctl history-pop
+
+# Notification close all
 control + q
 	dunstctl close-all
 
+# Wifi rofi menu
 super + n
 	wifimenu
+
+# edit config files
 super + comma
 	confedit
+
+# rofi clipboard
 super + shift + @p
 	roficlip
+
+# rofi calculator
 super + c
 	rofi -show calc -modi calc -no-show-match -no-sort > /dev/null
-
 
 # quit/restart bspwm
 super + shift + {e,r}
@@ -63,17 +79,15 @@ super + shift + {e,r}
 super + {_,shift + }q
 	bspc node -{c,k}
 
-#
-#
-# state/flags
-#
-
+# Fullscreen toggle
 super + f
 	bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
+# tiled mode
 super + e
 	bspc node focused.floating -t tiled
 
+# floating mode
 super + t
 	bspc node focused.tiled -t floating
 
@@ -82,7 +96,7 @@ super + t
 super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}' --follow
 
-# fous desktop
+
 super + 1
 	bspc desktop -f '^1'
 super + 2
@@ -110,7 +124,7 @@ super + 9
 super + 0
 	bspc desktop -f '^10'
 
-# alternate between the tiled and monocle layout
+# alternate between tall,wide,even,monocle layout
 super + m
 	bsp-layout cycle --layouts tall,wide,even,monocle
 
@@ -122,21 +136,16 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-#
-# state/flags
-#
-
-#
-# focus/swap
-#
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
+# focus the node in the given direction
 super + {Left,Down,Up,Right}
 	bspc node -f {west,south,north,east}
 
+# move the node in the given direction
 super + shift + {Left,Down,Up,Right}
 	bspc node -s {west,south,north,east}
 
@@ -199,14 +208,19 @@ super + alt + shift + {h,j,k,l}
 # super + {Left,Down,Up,Right}
 # 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Scratchpad orgmode
 super + shift + s
 	bspwmsp  "alacritty --class orgmode,orgmode -e newScratchpad" "orgmode" 25 10 50 70
+
+# Scratchpad terminal
 super + shift + a
 	bspwmsp  "alacritty --class generalterminal,generalterminal"  "generalterminal" 25 10 50 70
+
+# Scratchpad ranger
 super + shift + f
 	bspwmsp  "alacritty --class scranger,scranger -e ranger"  "scranger" 25 10 50 70
 
-
+# toggle picom
 super + shift + w
 	toggleprogram "picom" "--experimental-backends"
 
@@ -218,8 +232,14 @@ super + w; r
 	child=$(tabc list $tabbed |  head -n1); \
 	tabc remove $child
 
+# Rofi windows
 alt + Tab
 	rofi -show window run
 
+# reload autorandr
 super + apostrophe
 	autorandr -c; dunstify -h string:x-dunst-stack-tag:toggleprogram 'autorandr' 'Reloaded config'
+
+# this menu
+super + question
+	whichkey
