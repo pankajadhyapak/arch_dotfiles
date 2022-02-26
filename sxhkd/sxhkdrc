@@ -243,3 +243,8 @@ super + apostrophe
 # this menu
 super + question
 	whichkey
+
+super + r; s
+	record start
+super + r; x
+	record stop

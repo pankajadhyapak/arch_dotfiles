@@ -36,6 +36,7 @@ dunst
 efibootmgr
 fakeroot
 feh
+ffmpeg
 file
 filezilla
 findutils
@@ -90,6 +91,7 @@ make
 man-db
 man-pages
 mariadb
+mpv
 mysql-workbench
 nautilus
 ncdu
@@ -138,6 +140,7 @@ sed
 shellcheck-bin
 siege
 simple-mtpfs
+simplescreenrecorder
 slack-desktop
 sof-firmware
 sublime-text-4

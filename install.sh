@@ -10,6 +10,7 @@ mkdir -p "$HOME/Pictures/screenshots"
 go install mvdan.cc/gofumpt@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/segmentio/golines@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.44.2
 
 # install PHP deps
 mkdir -p "$XDG_CONFIG_HOME/composer"

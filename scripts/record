@@ -1,0 +1,87 @@
+#!/usr/bin/env sh
+
+pid_file="/tmp/recordpid"
+log_file="/tmp/record.log"
+
+pid_exists() {
+    test -r "$pid_file"
+}
+
+is_running() {
+    if pid_exists; then
+        ps "$(cat "$pid_file")" >/dev/null 2>&1 || return 1
+    else
+        return 1
+    fi
+}
+
+start() {
+    # ffmpeg -s 1920x1080  -framerate 60 -f x11grab -i :0.0 output.mp4
+    # pid_exists || exit 1
+    ffmpeg \
+        -threads 0 \
+        -thread_queue_size 512 -f x11grab -framerate 30  \
+        $(xwininfo | gawk 'match($0, /-geometry ([0-9]+x[0-9]+).([0-9]+).([0-9]+)/, a)\
+      { print "-video_size " a[1] " -i +" a[2] "," a[3] }') \
+        "$HOME/Videos/$(date '+%y%m%d-%H%M-%S').mkv" >"$log_file" 2>&1 &
+    echo "$!" >"$pid_file"
+
+    dunstify -h string:x-dunst-stack-tag:toggleprogram 'Screen Record' 'started!'
+}
+
+
+
+
+stop() {
+    dunstify -h string:x-dunst-stack-tag:toggleprogram 'Screen Record' 'Stoping!'
+    pid_exists || exit 1
+    pid="$(cat "$pid_file")"
+    # kill with SIGTERM, allowing finishing touches.
+    kill "$pid"
+    # even after SIGTERM, ffmpeg may still run, so SIGKILL it.
+    sleep 3
+    is_running && kill -9 "$pid"
+    rm -f "$pid_file"
+    dunstify -h string:x-dunst-stack-tag:toggleprogram 'Screen Record' 'Stoped!'
+}
+
+toggle() {
+    if is_running; then
+        echo "Stopping record"
+        stop
+    else
+        echo "Starting record"
+        start
+    fi
+    echo
+    status
+}
+
+status() {
+    if is_running; then
+        echo "Recording with PID $(cat "$pid_file")"
+        echo "Check the logs at"
+        echo
+        echo "$log_file"
+        echo
+    else
+        echo "Record inactive"
+    fi
+}
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    toggle)
+        toggle
+        ;;
+    status)
+        status
+        ;;
+    *)
+        toggle
+        ;;
+esac
