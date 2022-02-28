@@ -23,8 +23,6 @@ else
 fi
 
 # bspc config ignore_ewmh_focus true
-
-
 bspc config border_width 1
 bspc config window_gap 6
 bspc config top_padding 25
@@ -54,6 +52,10 @@ bspc config pointer_action2 resize_corner
 bsp-layout set tall '^1' -- --master-size 0.6
 bsp-layout set monocle '^4'
 
+## Window rules
+# remove all rules first
+bspc rule -r *:*
+
 # 1 > terminal
 #bspc rule -a kittymain desktop='^1' follow=on
 
@@ -71,20 +73,18 @@ bspc rule -a GitHub Desktop desktop='^8' follow=on
 
 bspc rule -a Mailspring desktop='^9' follow=on
 
-bspc rule -a "Org.gnome.Nautilus" state=floating
-bspc rule -a "Lxappearance" state=floating
-bspc rule -a "Arandr" state=floating
-
-bspc rule -a '*:floating' state=floating
-bspc rule -a '*:pop-up' state=floating
-
+declare -a settings=("*:floating" "*:pop-up" "Org.gnome.Nautilus" "Lxappearance" "Arandr" \
+"Xfce4-power-manager-settings" "Pavucontrol")
+for i in ${settings[@]}; do
+   bspc rule -a $i state=floating; done
 
 # bspc rule -a Screenkey manage=off
+
+# autostart
 
 # start terminal always
 if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
     bspc desktop -f '^1'
     kitty --class=kittymain &
 fi
-
-
+# sh "$HOME/.config/bspwm/autostart.sh" &

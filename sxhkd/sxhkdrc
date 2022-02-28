@@ -55,6 +55,10 @@ control + BackSpace
 control + q
 	dunstctl close-all
 
+# Notification close all
+control + comma
+	dunstctl context
+
 # Wifi rofi menu
 super + n
 	wifimenu
@@ -89,7 +93,7 @@ super + e
 
 # floating mode
 super + t
-	bspc node focused.tiled -t floating
+	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
 
 
 # send to the given desktop
@@ -238,7 +242,7 @@ alt + Tab
 
 # reload autorandr
 super + apostrophe
-	autorandr -c; dunstify -h string:x-dunst-stack-tag:toggleprogram 'autorandr' 'Reloaded config'
+	autorandr -l nodocked; dunstify -h string:x-dunst-stack-tag:toggleprogram 'autorandr' 'Reloaded config'
 
 # this menu
 super + question

@@ -109,13 +109,12 @@ ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
 chmod +x -R "$HOME/.local/bin/scripts"
 
 # wallpapers
-cp "$DOTFILES/wall.jpg" "$HOME/Pictures/wall4.jpg"
-betterlockscreen -u "$HOME/Pictures/wall4.jpg" --blur 0.5
+cp "$DOTFILES/wallpaper.jpg" "$HOME/Pictures/wallpaper.jpg"
+sudo "$DOTFILES/wallpaper.jpg" /usr/share/wall.jpg
 
 # guestures
 rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"
 ln -sf "$DOTFILES/libinput-gestures.conf" "$XDG_CONFIG_HOME/libinput-gestures.conf"
-
 
 # mimeapps.list
 rm -rf "$XDG_CONFIG_HOME/mimeapps.list"

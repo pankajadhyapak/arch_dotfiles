@@ -9,7 +9,6 @@ base
 bat
 bc
 bcm20702a1-firmware
-betterlockscreen
 binutils
 bison
 blueman
@@ -27,7 +26,6 @@ ctags
 cups
 dex
 dialog
-dmenu
 docker
 docker-compose
 dropbox
@@ -119,7 +117,7 @@ patch
 pavucontrol
 phpstorm
 phpstorm-jre
-picom-ibhagwan-git
+picom-jonaburg-git
 pkgconf
 polybar
 pulseaudio
@@ -176,6 +174,8 @@ xdo
 xf86-input-synaptics
 xf86-video-intel
 xf86-video-vesa
+xfce-polkit
+xfce4-power-manager
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
@@ -215,6 +215,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+xss-lock
 yamllint
 yarn
 yay
