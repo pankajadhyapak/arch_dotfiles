@@ -8,15 +8,6 @@ if [ "$SHELL" = "/usr/bin/zsh" ]; then
     . ~/.zshenv
 fi
 
-
-# Enable power management
-xfce4-power-manager &
-
-# polkit agent
-if [[ ! `pidof xfce-polkit` ]]; then
-    /usr/lib/xfce-polkit/xfce-polkit &
-fi
-
 dunst &
 
 autorandr -c

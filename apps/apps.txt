@@ -215,7 +215,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
-xss-lock
 yamllint
 yarn
 yay

@@ -87,4 +87,5 @@ if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
     bspc desktop -f '^1'
     kitty --class=kittymain &
 fi
+
 # sh "$HOME/.config/bspwm/autostart.sh" &
