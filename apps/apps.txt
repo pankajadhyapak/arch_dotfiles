@@ -21,10 +21,7 @@ caffeine-ng
 catppuccin-gtk-theme
 clipster-git
 composer
-cowsay
-ctags
 cups
-dex
 dialog
 docker
 docker-compose
@@ -74,7 +71,7 @@ kitty
 lazydocker
 lazygit
 libinput-gestures
-libreoffice-fresh
+libreoffice-still
 libtool
 lightdm
 lightdm-settings
@@ -175,7 +172,6 @@ xf86-input-synaptics
 xf86-video-intel
 xf86-video-vesa
 xfce-polkit
-xfce4-power-manager
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
