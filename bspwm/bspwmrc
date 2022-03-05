@@ -2,14 +2,10 @@
 
 pgrep -x sxhkd >/dev/null || sxhkd &
 
-sh "$HOME/.config/polybar/launch.sh" &
-
 pgrep bspswallow || bspswallow &
 
 # Fix Mouse cursor on startup
 xsetroot -cursor_name left_ptr
-
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10 &
 
 m=$(bspc query -M | wc -l)
 
@@ -18,8 +14,6 @@ if [ "$m" = 1 ]; then
 elif [ "$m" = 2 ]; then
     bspc monitor DP3 -d 1 2 3 4 5 &
     bspc monitor DP1 -d 6 7 8 9 10 &
-else
-    bspc monitor DP1 -r
 fi
 
 # bspc config ignore_ewmh_focus true
@@ -29,6 +23,10 @@ bspc config top_padding 25
 bspc config bottom_padding 0
 bspc config left_padding 0
 bspc config right_padding 0
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+# bspc config merge_overlapping_monitors false
 
 bspc config normal_border_color	  "#4c566a"
 bspc config active_border_color	  "#1e1e1e"
@@ -49,12 +47,11 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action2 resize_corner
 
 #layouts
-bsp-layout set tall '^1' -- --master-size 0.6
-bsp-layout set monocle '^4'
+bsp-layout set tall 1 -- --master-size 0.6
+bsp-layout set monocle 4
 
 ## Window rules
 # remove all rules first
-bspc rule -r *:*
 
 # 1 > terminal
 #bspc rule -a kittymain desktop='^1' follow=on
@@ -71,7 +68,7 @@ bspc rule -a Slack desktop='^7' follow=on
 
 bspc rule -a GitHub Desktop desktop='^8' follow=on
 
-bspc rule -a Mailspring desktop='^9' follow=on
+bspc rule -a Mailspring desktop='^9' follow=off focus=off
 
 declare -a settings=("*:floating" "*:pop-up" "Org.gnome.Nautilus" "Lxappearance" "Arandr" \
 "Xfce4-power-manager-settings" "Pavucontrol")
@@ -81,11 +78,4 @@ for i in ${settings[@]}; do
 # bspc rule -a Screenkey manage=off
 
 # autostart
-
-# start terminal always
-if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
-    bspc desktop -f '^1'
-    kitty --class=kittymain &
-fi
-
-# sh "$HOME/.config/bspwm/autostart.sh" &
+sh "$HOME/.config/bspwm/autostart.sh" &

@@ -2,11 +2,8 @@
 
 set-wallpaper
 
-# weired bug with bspwm
-bspc config remove_disabled_monitors false
-bspc config remove_unplugged_monitors true
-bspc config merge_overlapping_monitors false
+bspc wm -r
 
 notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
 
-
+sh "$HOME/.config/polybar/launch.sh" &

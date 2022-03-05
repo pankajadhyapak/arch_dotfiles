@@ -22,6 +22,7 @@ catppuccin-gtk-theme
 clipster-git
 composer
 cups
+dex
 dialog
 docker
 docker-compose
@@ -38,6 +39,7 @@ findutils
 flameshot
 flex
 fzf
+galculator
 gawk
 gcc
 gettext
@@ -61,6 +63,7 @@ gzip
 htop
 httpie
 i3-gaps
+i3-layouts
 i3status
 imagemagick
 insomnia-bin
@@ -79,7 +82,7 @@ lightdm-slick-greeter
 linux
 linux-firmware
 lsd-bin
-lxappearance
+lxappearance-gtk3
 m4
 mailspring
 make
@@ -114,8 +117,9 @@ patch
 pavucontrol
 phpstorm
 phpstorm-jre
-picom-jonaburg-git
+picom
 pkgconf
+polkit-gnome
 polybar
 pulseaudio
 pulseaudio-alsa
@@ -171,7 +175,6 @@ xdo
 xf86-input-synaptics
 xf86-video-intel
 xf86-video-vesa
-xfce-polkit
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
