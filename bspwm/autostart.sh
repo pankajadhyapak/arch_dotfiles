@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Kill if already running
-killall -9 picom sxhkd dunst blueman-applet parcellite nm-applet clipster flameshot libinput-gestures pasystray
+killall -9 caffeine picom sxhkd dunst blueman-applet parcellite nm-applet clipster flameshot libinput-gestures pasystray
 
 # start terminal always
 if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
@@ -9,7 +9,7 @@ if [ $(xdotool search --class "kittymain" | wc -l) = 0 ]; then
     kitty --class=kittymain &
 fi
 
-dex --autostart --environment bspwm &
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -19,15 +19,15 @@ sxhkd &
 
 setxkbmap -option caps:escape
 
-blueman-applet &
+# blueman-applet &
 
 picom --experimental-backends &
 
 set-wallpaper &
 
-parcellite &
+# parcellite &
 
-nm-applet --indicator &
+# nm-applet --indicator &
 
 clipster -d &
 
@@ -35,13 +35,15 @@ flameshot &
 
 libinput-gestures &
 
-pasystray &
+# pasystray &
 
 # redshift &
 
-if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
-then
- caffeine -a &
-fi
+"$HOME/.config/polybar/launch.sh" &
+
+# if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
+# then
+#  caffeine -a &
+# fi
 
 

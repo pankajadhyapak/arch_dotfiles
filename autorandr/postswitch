@@ -6,4 +6,4 @@ bspc wm -r
 
 notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
 
-sh "$HOME/.config/polybar/launch.sh" &
+

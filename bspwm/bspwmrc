@@ -70,8 +70,8 @@ bspc rule -a GitHub Desktop desktop='^8' follow=on
 
 bspc rule -a Mailspring desktop='^9' follow=off focus=off
 
-declare -a settings=("*:floating" "*:pop-up" "Org.gnome.Nautilus" "Lxappearance" "Arandr" \
-"Xfce4-power-manager-settings" "Pavucontrol")
+declare -a settings=("*:floating" "*:pop-up" "Thunar" "Lxappearance" "Arandr" \
+"Xfce4-power-manager-settings" "Pavucontrol" "Gnome-disks" "Gnome-calculator" "mpv")
 for i in ${settings[@]}; do
    bspc rule -a $i state=floating; done
 

@@ -45,6 +45,8 @@ gcc
 gettext
 git
 github-desktop-bin
+gnome-calculator
+gnome-disk-utility
 gnome-keyring
 go
 go-tools
@@ -73,6 +75,7 @@ keepassxc
 kitty
 lazydocker
 lazygit
+lemonbar-xft-git
 libinput-gestures
 libreoffice-still
 libtool
@@ -91,7 +94,6 @@ man-pages
 mariadb
 mpv
 mysql-workbench
-nautilus
 ncdu
 neofetch
 neovim
@@ -148,6 +150,10 @@ sxhkd
 texinfo
 tfenv
 the_silver_searcher
+thunar
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-volman
 tig
 time
 tldr
@@ -170,6 +176,7 @@ whois
 xcape
 xclip
 xdg-user-dirs
+xdg-user-dirs-gtk
 xdg-utils
 xdo
 xf86-input-synaptics
