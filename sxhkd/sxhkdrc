@@ -214,15 +214,19 @@ super + alt + shift + {h,j,k,l}
 
 # Scratchpad orgmode
 super + shift + s
-	bspwmsp  "alacritty --class orgmode,orgmode -e newScratchpad" "orgmode" 25 10 50 70
+	bspwmsp	"st -c orgmode newScratchpad" "orgmode" 25 10 50 70
 
 # Scratchpad terminal
 super + shift + a
-	bspwmsp  "alacritty --class generalterminal,generalterminal"  "generalterminal" 25 10 50 70
+	bspwmsp  "st -c generalterminal"  "generalterminal" 25 10 50 70
+
+# Scratchpad music
+super + shift + d
+	bspwmsp  "brave --app=https://music.youtube.com/"  "Brave-browser" 25 10 50 70
 
 # Scratchpad ranger
 super + shift + f
-	bspwmsp  "alacritty --class scranger,scranger -e ranger"  "scranger" 25 10 50 70
+	bspwmsp  "st -c scranger ranger"  "scranger" 25 10 50 70
 
 # toggle picom
 super + shift + w

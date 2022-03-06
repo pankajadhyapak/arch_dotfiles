@@ -27,6 +27,7 @@ bspc config right_padding 0
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 # bspc config merge_overlapping_monitors false
+bspc config ignore_ewmh_focus true
 
 bspc config normal_border_color	  "#4c566a"
 bspc config active_border_color	  "#1e1e1e"
@@ -58,6 +59,7 @@ bsp-layout set monocle 4
 
 # 2 > web
 bspc rule -a Google-chrome desktop='^2' follow=on focus=on
+bspc rule -a firefox desktop='^2' follow=on focus=on
 
 bspc rule -a Code desktop='^3' follow=on
 
@@ -71,7 +73,7 @@ bspc rule -a GitHub Desktop desktop='^8' follow=on
 bspc rule -a Mailspring desktop='^9' follow=off focus=off
 
 declare -a settings=("*:floating" "*:pop-up" "Thunar" "Lxappearance" "Arandr" \
-"Xfce4-power-manager-settings" "Pavucontrol" "Gnome-disks" "Gnome-calculator" "mpv")
+"Pavucontrol" "Gnome-disks" "Gnome-calculator" "mpv" "Nsxiv")
 for i in ${settings[@]}; do
    bspc rule -a $i state=floating; done
 
