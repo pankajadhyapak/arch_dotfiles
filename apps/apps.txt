@@ -65,7 +65,6 @@ gzip
 htop
 httpie
 i3-gaps
-i3-layouts
 i3status
 imagemagick
 insomnia-bin
@@ -112,6 +111,7 @@ opencl-nvidia
 os-prober
 p7zip
 pacman
+pacman-contrib
 pamixer
 parcellite
 pasystray-gtk3-git

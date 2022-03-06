@@ -1,20 +1,16 @@
 #! /bin/sh
 
-setxkbmap -option caps:escape
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 dunst &
 
-sxhkd &
-
-blueman-applet &
+setxkbmap -option caps:escape
 
 picom --experimental-backends &
 
 set-wallpaper &
-
-parcellite &
-
-nm-applet --indicator &
 
 clipster -d &
 
@@ -22,17 +18,11 @@ flameshot &
 
 libinput-gestures &
 
-# pasystray &
-
-dex --autostart --environment i3 &
-
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-sh "$HOME/.config/polybar/launch.sh" &
-
 # redshift &
+
 if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
 then
  caffeine -a &
 fi
+
 
