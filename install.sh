@@ -56,6 +56,10 @@ rm -rf "$XDG_CONFIG_HOME/bspwm"
 ln -s "$DOTFILES/bspwm" "$XDG_CONFIG_HOME"
 chmod +x "$XDG_CONFIG_HOME/bspwm/bspwmrc"
 
+# polybar
+rm -rf "$XDG_CONFIG_HOME/polybar"
+ln -s "$DOTFILES/polybar" "$XDG_CONFIG_HOME"
+
 # sxhkd
 rm -rf "$XDG_CONFIG_HOME/sxhkd"
 ln -s "$DOTFILES/sxhkd" "$XDG_CONFIG_HOME"

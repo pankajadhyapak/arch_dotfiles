@@ -9,13 +9,10 @@ if type "xrandr"; then
     for entry in $(xrandr --query | grep " connected"); do
         mon=$(cut -d" " -f1 <<< "$entry")
         status=$(cut -d" " -f3 <<< "$entry")
-
-        tray_pos=""
         if [ "$status" == "primary" ]; then
-            tray_pos="right"
-        fi
-        if [ "$status" != "(normal" ]; then
-            MONITOR=$mon TRAY_POS=$tray_pos polybar -r main & disown
+            MONITOR=$mon  polybar -r main 2>&1 | tee -a /tmp/polybar.log & disown
+        else
+            MONITOR=$mon  polybar -r external 2>&1 | tee -a /tmp/polybar_external.log & disown
         fi
     done
     unset IFS  # avoid mega dumb by resetting the IFS
@@ -24,6 +21,3 @@ else
 fi
 
 echo "Bars launched..."
-
-
-
