@@ -14,6 +14,7 @@ bison
 blueman
 bluez
 bluez-utils
+brave-bin
 brightnessctl
 bsp-layout
 bspwm
@@ -65,6 +66,7 @@ gzip
 htop
 httpie
 i3-gaps
+i3blocks
 i3status
 imagemagick
 insomnia-bin
@@ -74,7 +76,6 @@ keepassxc
 kitty
 lazydocker
 lazygit
-lemonbar-xft-git
 libinput-gestures
 libreoffice-still
 libtool
@@ -173,6 +174,7 @@ visual-studio-code-bin
 wget
 which
 whois
+wmctrl
 xcape
 xclip
 xdg-user-dirs
