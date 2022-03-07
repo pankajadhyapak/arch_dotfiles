@@ -35,6 +35,7 @@ fakeroot
 feh
 ffmpeg
 file
+file-roller
 filezilla
 findutils
 flameshot
