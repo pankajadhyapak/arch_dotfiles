@@ -1,6 +1,8 @@
 #! /bin/sh
 
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/ &
+
+sxhkd -c $HOME/.config/i3/sxhkdrc &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -19,10 +21,4 @@ flameshot &
 libinput-gestures &
 
 # redshift &
-
-if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
-then
- caffeine -a &
-fi
-
 

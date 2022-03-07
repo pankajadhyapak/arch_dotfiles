@@ -1,0 +1,205 @@
+# reload sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd; dunstify -h string:x-dunst-stack-tag:toggleprogram 'sxhkd' 'Reloaded config'
+
+# kitty terminal
+super + Return
+	kitty
+
+# st terminal
+super + shift + Return
+	st
+
+# program launcher
+super + space
+    rofi -modi "window#run#ssh" -show drun
+
+# Screenshot select
+@Print
+	screenshot
+
+# Screenshot Window
+shift + @Print
+	screenshot window
+
+# brightness up
+XF86MonBrightnessUp
+	changebrightness up
+
+# brightness down
+XF86MonBrightnessDown
+	changebrightness down
+
+# volume up
+XF86AudioRaiseVolume
+	changevolume up
+
+# volume down
+XF86AudioLowerVolume
+	changevolume down
+
+# volume mute
+XF86AudioMute
+	changevolume mute
+
+# Power Menu
+super + p
+	powermenu
+
+# Notification history
+control + BackSpace
+	dunstctl history-pop
+
+# Notification close all
+control + q
+	dunstctl close-all
+
+# Notification context in rofi
+control + comma
+	dunstctl context
+
+# Wifi rofi menu
+super + n
+	wifimenu
+
+# edit config files
+super + comma
+	confedit
+
+# rofi clipboard
+super + shift + @p
+	roficlip
+
+# gnome calculator
+super + @c
+	gnome-calculator
+
+# toggle picom
+super + shift + w
+	toggleprogram "picom" "--experimental-backends"
+
+# Rofi windows
+alt + Tab
+	rofi -show window run
+
+# autorandr nodocked
+super + apostrophe
+	autorandr -l nodocked; dunstify -h string:x-dunst-stack-tag:toggleprogram 'autorandr' 'Reloaded config'
+
+# autorandr reload
+super + shift + m
+	autorandr -c
+
+# this menu
+super + question
+	whichkey
+
+# start recording
+super + r; s
+	record start
+
+# stop recording
+super + r; x
+	record stop
+
+
+super + 1
+	i3-msg workspace number 1
+super + 2
+	i3-msg workspace number 2; \
+	[ $(xdotool search --class "Google-chrome" | wc -l) = 0 ] && /opt/google/chrome/google-chrome
+super + 3
+	i3-msg workspace number 3; \
+	[ $(xdotool search --class "Code" | wc -l) = 0 ] && /usr/bin/code
+super + 4
+	i3-msg workspace number 4
+super + 5
+	i3-msg workspace number 5; \
+	[ $(xdotool search --class "Mysql-workbench-bin" | wc -l) = 0 ] && GTK_THEME=Adwaita mysql-workbench
+super + 6
+	i3-msg workspace number 6
+super + 7
+	i3-msg workspace number 7; \
+	[ $(xdotool search --class "Slack" | wc -l) = 0 ] && slack
+super + 8
+	i3-msg workspace number 8; \
+	[ $(xdotool search --class "GitHub Desktop" | wc -l) = 0 ] && github-desktop
+super + 9
+	i3-msg workspace number 9; \
+	[ $(xdotool search --class "Mailspring" | wc -l) = 0 ] && mailspring
+super + 0
+	i3-msg workspace number 10
+
+# Workspace back forth
+super + Tab
+	i3-msg workspace back_and_forth
+
+# send to the given desktop
+super + shift + {1-9,0}
+	i3-msg move container to workspace {1-9,10}
+
+# i3 restart
+super + shift + r
+	i3-msg restart
+
+# i3 reload
+super + shift + c
+	i3-msg reload
+
+# i3 exit
+super + shift + e
+	i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'
+
+# i3 kill focused window
+super + q
+    i3-msg kill
+
+# i3 resize window
+super + ctrl + {l,j,k,h}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+# i3 split direction
+super + {h,v}
+    i3-msg split {h,v}
+
+# i3 focus window
+super + {left,down,up,right}
+    i3-msg focus {left,down,up,right}
+# super+{h,j,k,l}
+#     i3-msg focus {left,down,up,right}
+
+# i3 move focused window
+super + shift + {left,down,up,right}
+    i3-msg move {left,down,up,right}
+
+# i3 fullscreen toggle
+super + f
+    i3-msg fullscreen toggle
+
+# i3 floatig toggle
+super + shift + space
+    i3-msg floating toggle
+
+# i3 orgmode Scratchpad
+super + shift + s
+	i3-sp -t st newScratchpad
+
+# i3 st Scratchpad
+super + shift + a
+	i3-sp -tmt -atc st
+
+# i3 ranger Scratchpad
+super + shift + f
+	i3-sp -t st ranger
+
+# i3 Youtube music Scratchpad
+super + shift + d
+	i3-sp -d900x500 -p0,0 -mr -tatr -- brave --app=https://music.youtube.com/
+
+# i3 toggle focus
+super + t
+	i3-msg focus mode_toggle
+
+# i3 focus parent
+super + a
+	i3-msg focus parent

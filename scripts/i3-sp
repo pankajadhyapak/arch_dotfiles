@@ -235,7 +235,7 @@ show_window_in_position() {
 
 	if [ -z "$move" ]; then
 		debug 'Moving to scratchpad, showing and resizing'
-		i3-msg -q -- "[id=\"$window_id\"] move to scratchpad;[id=\"$window_id\"] scratchpad show;[id=\"$window_id\"] move position $x_pos px $y_pos px;[id=\"$window_id\"] resize set $width px $height px"
+		i3-msg -q -- "[id=\"$window_id\"] move to scratchpad;[id=\"$window_id\"] scratchpad show;[id=\"$window_id\"] move position center;[id=\"$window_id\"] resize set $width px $height px"
 		return 0
 	fi
 
@@ -250,7 +250,7 @@ show_window_in_position() {
 		l) x=$((offset_x - width + 1));         x_inc=$(((x_pos - x) / 4));;
 		r) x=$((offset_x + screen_width - 1));  x_inc=$(((x_pos - x) / 4));;
 	esac
-	i3-msg -q -- "[id=\"$window_id\"] move to scratchpad;[id=\"$window_id\"] scratchpad show;[id=\"$window_id\"] move position $x px $y px;[id=\"$window_id\"] resize set $width px $height px"
+	i3-msg -q -- "[id=\"$window_id\"] move to scratchpad;[id=\"$window_id\"] scratchpad show;[id=\"$window_id\"] move position center;[id=\"$window_id\"] resize set $width px $height px"
 	debug 'Starting show animation'
 	while [[ ($x_inc -lt 0 && $x -gt $x_end) || ($x_inc -gt 0 && $x -lt $x_end) || ($y_inc -lt 0 && $y -gt $y_end) || ($y_inc -gt 0 && $y -lt $y_end) ]]; do
 		animate

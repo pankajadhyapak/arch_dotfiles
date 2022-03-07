@@ -3,21 +3,15 @@
 # Terminate already running bar instances
 killall -q polybar
 
-# Launch new polybar(s)
 if type "xrandr"; then
-    IFS=$'\n'  # must set internal field separator to avoid dumb
-    for entry in $(xrandr --query | grep " connected"); do
-        mon=$(cut -d" " -f1 <<< "$entry")
-        status=$(cut -d" " -f3 <<< "$entry")
-        if [ "$status" == "primary" ]; then
-            MONITOR=$mon  polybar -r main 2>&1 | tee -a /tmp/polybar.log & disown
+    for entry in $(xrandr --listactivemonitors | sed -n '2,$s/^.*\s\(\S\+\)$/\1/p'); do
+        if [ "$entry" == $(xrandr | sed -n 's/^\(\S\+\).*primary.*$/\1/p') ]; then
+            MONITOR=$entry  polybar -r main 2>&1 | tee -a /tmp/polybar.log & disown
         else
-            MONITOR=$mon  polybar -r external 2>&1 | tee -a /tmp/polybar_external.log & disown
+            MONITOR=$entry  polybar -r external 2>&1 | tee -a /tmp/polybar_external.log & disown
         fi
     done
-    unset IFS  # avoid mega dumb by resetting the IFS
 else
     polybar -r main 2>&1 | tee -a /tmp/polybar.log & disown
 fi
-
 echo "Bars launched..."
