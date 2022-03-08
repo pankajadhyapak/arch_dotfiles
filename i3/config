@@ -6,7 +6,7 @@ set $fm DP3
 set $sm DP1
 set $mod Mod4
 floating_modifier $mod
-font pango:Hack Nerd Font 8
+font pango:JetBrainsMono Nerd Font 12
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking

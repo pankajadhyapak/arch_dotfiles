@@ -1,4 +1,4 @@
-st.font: Hack Nerd Font:pixelsize=16:antialias=true:autohint=true;
+st.font: JetBrainsMono Nerd Font:pixelsize=16:antialias=true:autohint=true;
 st.alpha: 0.92
 st.chscale: 1.6
 

@@ -14,16 +14,16 @@ scrolling:
 
 font:
   normal:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style:  Medium
   bold:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style:  Bold
   italic:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style:  MediumItalic
   bold_italic:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style: BoldItalic
   size: 8
   offset:

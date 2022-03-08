@@ -1,6 +1,6 @@
 {
     "workbench.statusBar.visible": false,
-    "editor.fontFamily": "Hack Nerd Font, Firacode Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font, Firacode Nerd Font",
     "editor.lineHeight": 1.8,
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
