@@ -1,6 +1,7 @@
 include $HOME/.config/i3/theme.conf
 include $HOME/.config/i3/rules.conf
 exec --no-startup-id $HOME/.config/i3/autostart.sh
+exec --no-startup-id $HOME/.config/i3/scripts/alternating_layouts.py
 
 set $fm DP3
 set $sm DP1
