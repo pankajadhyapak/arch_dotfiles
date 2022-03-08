@@ -155,7 +155,7 @@ super + q
     i3-msg kill
 
 # i3 resize window
-super + ctrl + {l,j,k,h}
+super + ctrl + {Left, Down, Up, Right}
     i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
 
 # i3 split direction
@@ -163,13 +163,13 @@ super + {h,v}
     i3-msg split {h,v}
 
 # i3 focus window
-super + {left,down,up,right}
+super + {Left, Down, Up, Right}
     i3-msg focus {left,down,up,right}
 # super+{h,j,k,l}
 #     i3-msg focus {left,down,up,right}
-
+`
 # i3 move focused window
-super + shift + {left,down,up,right}
+super + shift + {Left, Down, Up, Right}
     i3-msg move {left,down,up,right}
 
 # i3 fullscreen toggle
