@@ -15,7 +15,7 @@ dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 dunst &
 
-sxhkd &
+sxhkd -c $HOME/bspwm/sxhkdrc &
 
 setxkbmap -option caps:escape
 

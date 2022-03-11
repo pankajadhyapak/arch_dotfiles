@@ -71,6 +71,15 @@ function mdwm(){
   cd ~/.local/dwm
   sudo cp config.h config.h.bck
   sudo rm config.h
+  sudo rm -rf *.orig
+  sudo rm -rf *.rej
   sudo make
   sudo make clean install
+}
+
+function hmem(){
+  echo "MEMORY"
+  ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+  echo "CPU"
+  ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
 }

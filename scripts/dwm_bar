@@ -5,7 +5,7 @@ printf "$$" > ~/.cache/pidofbar
 sec=0
 
 update_memory () {
-	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+	memory="$(free | grep Mem | awk '{ printf("%.2f%", $3/$2 * 100.0) }')"
 }
 
 update_cpu () {
@@ -13,7 +13,21 @@ update_cpu () {
 }
 
 update_time () {
-	time="$(date "+   %a %d %b  %I:%M %P ")"
+	time="$(date "+%a %d %b %I:%M %P")"
+}
+
+
+update_pkg_updates() {
+	updates=$(checkupdates | wc -l)
+	if [ "$updates"  == 0 ]; then
+		package_status=""
+	else
+		package_status=" $updates"
+	fi
+}
+
+update_weather() {
+	weather=" $(curl -s https://wttr.in/Berlin?format=%t)"
 }
 
 update_bat () {
@@ -36,23 +50,9 @@ update_bat () {
 	bat="$bat_status $bat_capacity%"
 }
 
-update_vol () {
-	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf ' ' || printf ' ')$(pamixer --get-volume)%"
-}
-
-# We have to run this only once.
-update_vol
-
 display () {
-	xsetroot -name "  $cpu |  $memory | $time | $bat "
+	xsetroot -name " $package_status | $weather |  $cpu |  $memory | $bat | $time"
 }
-
-# Handling receiving signal
-# RTMIN = 34 (always)
-trap	"update_vol;display"	"RTMIN"
-
-## kill -m "$(cat ~/.cache/pidofbar)"
-# where m = 34 + n
 
 while true
 do
@@ -60,10 +60,12 @@ do
   wait && {
 		# to update item ever n seconds with a offset of m
 		## [ $((sec % n)) -eq m ] && udpate_item
-		[ $((sec % 5 )) -eq 0 ] && update_time
-		[ $((sec % 15)) -eq 0 ] && update_memory
-		[ $((sec % 15)) -eq 0 ] && update_cpu
+		[ $((sec % 10 )) -eq 0 ] && update_time
+		[ $((sec % 60)) -eq 0 ] && update_memory
+		[ $((sec % 60)) -eq 0 ] && update_cpu
 		[ $((sec % 60 )) -eq 0 ] && update_bat
+		[ $((sec % 60 )) -eq 0 ] && update_pkg_updates
+		[ $((sec % 60 )) -eq 0 ] && update_weather
 
 		# how often the display updates ( 5 seconds )
 		[ $((sec % 5 )) -eq 0 ] && display

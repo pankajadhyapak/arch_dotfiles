@@ -1,0 +1,19 @@
+#!/bin/sh
+
+MONITOR_COUNT=$(xrandr --listactivemonitors | sed -n '2,$s/^.*\s\(\S\+\)$/\1/p' | wc -l)
+
+if [ $MONITOR_COUNT == 2 ]; then
+    MONITOR=0
+    TAG=$1
+    if [ $1 -gt 5 ]; then
+        MONITOR=1
+        TAG=$(expr $1 - 1 )
+    else
+        TAG=$(expr $1 - 1 )
+    fi
+    dwmc focusnthmonx $MONITOR;
+	dwmc viewex $TAG;
+else
+    dwmc viewex $(expr $1 - 1 )
+fi
+

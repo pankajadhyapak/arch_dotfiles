@@ -1,6 +1,6 @@
-st.font: JetBrainsMono Nerd Font:pixelsize=16:antialias=true:autohint=true;
-st.alpha: 0.92
-st.chscale: 1.6
+*.font: JetBrainsMono Nerd Font:pixelsize=16:antialias=true:autohint=true;
+*.alpha: 0.92
+*.chscale: 1.6
 
 *background: #1E1E2E
 *foreground: #D9E0EE

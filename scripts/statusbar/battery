@@ -1,0 +1,26 @@
+#!/bin/env sh
+
+case $BUTTON in
+	3) notify-send "click worksiin battery" "click worksiin battery"
+esac
+
+read -r bat_status </sys/class/power_supply/BAT0/status
+read -r bat_capacity </sys/class/power_supply/BAT0/capacity
+if [ "$bat_status" = "Charging" ]; then
+	bat_status="⚡"
+elif [ "$bat_capacity" -gt 80 ]; then
+	bat_status=" "
+elif [ "$bat_capacity" -gt 60 ]; then
+	bat_status=" "
+elif [ "$bat_capacity" -gt 40 ]; then
+	bat_status=" "
+elif [ "$bat_capacity" -gt 20 ]; then
+	bat_status=" "
+else
+	bat_status="?"
+	if [ "$bat_status" != "Charging" ]; then
+		notify-send --urgency=critical "Low Battery $bat_capacity"
+	fi
+fi
+
+echo "$bat_status $bat_capacity%"
