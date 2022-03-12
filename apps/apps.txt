@@ -34,6 +34,7 @@ efibootmgr
 fakeroot
 feh
 ffmpeg
+figlet
 file
 file-roller
 filezilla

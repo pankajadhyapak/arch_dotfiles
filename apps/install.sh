@@ -23,6 +23,10 @@ do
     if [ "$app" = "mariadb" ]; then
         sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     fi
+
+    if [ "$app" = "lightdm" ]; then
+        sudo systemctl enable lightdm.service
+    fi
 done
 
 echo "Installing yay apps"
@@ -42,3 +46,5 @@ done
     Option "Tapping" "on"
     Option "TappingButtonMap" "lrm"
 EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
+
+
