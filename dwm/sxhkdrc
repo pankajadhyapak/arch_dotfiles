@@ -146,7 +146,7 @@ alt + {Left, Right}
 super + 0
 	dwmc viewall
 ## Move current window to tag {1-9}
-super + shift + {1-9}
+alt + shift + {1-9}
 	dwmc tagex {0-8}
 
 super + {equal, minus, plus}

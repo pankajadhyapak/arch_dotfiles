@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+# Make pacman colorful, concurrent downloads and Pacman eye-candy.
+grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf
+
+# Use all cores for compilation.
+sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+
 # Install apps
 cat $DOTFILES/apps/apps.txt | while read app
 do
@@ -26,3 +33,12 @@ do
    echo "INSTALLING: ${app}"
    yay -S --noconfirm --needed ${app} &>> /dev/null || echo "$app" &>> "$HOME/failed_apps"
 done
+
+# Tap to click
+[ ! -f /etc/X11/xorg.conf.d/30-touchpad.conf ] && printf 'Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf

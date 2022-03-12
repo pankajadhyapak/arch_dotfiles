@@ -2,6 +2,7 @@
 
 # install apps
 bash $DOTFILES/apps/install.sh
+bash $DOTFILES/grub_theme.sh
 
 # Screenshot
 mkdir -p "$HOME/Pictures/screenshots"
@@ -120,10 +121,9 @@ ln -sf "$DOTFILES/dwm" "$XDG_CONFIG_HOME/dwm"
 rm -rf "$XDG_CONFIG_HOME/zathura"
 ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
 
-
 # wallpapers
 cp "$DOTFILES/wallpaper.jpg" "$HOME/Pictures/wallpaper.jpg"
-sudo "$DOTFILES/wallpaper.jpg" /usr/share/wall.jpg
+sudo cp "$DOTFILES/wallpaper.jpg" /usr/share/wall.jpg
 
 # guestures
 rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"
