@@ -116,6 +116,11 @@ chmod +x -R "$HOME/.local/bin/scripts"
 rm -rf "$XDG_CONFIG_HOME/dwm"
 ln -sf "$DOTFILES/dwm" "$XDG_CONFIG_HOME/dwm"
 
+#zathura
+rm -rf "$XDG_CONFIG_HOME/zathura"
+ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
+
+
 # wallpapers
 cp "$DOTFILES/wallpaper.jpg" "$HOME/Pictures/wallpaper.jpg"
 sudo "$DOTFILES/wallpaper.jpg" /usr/share/wall.jpg
