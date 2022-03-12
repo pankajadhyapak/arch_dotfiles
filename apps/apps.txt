@@ -80,6 +80,7 @@ lazygit
 libinput-gestures
 libreoffice-still
 libtool
+libxft-bgra
 lightdm
 lightdm-settings
 lightdm-slick-greeter
@@ -146,6 +147,7 @@ siege
 simple-mtpfs
 simplescreenrecorder
 slack-desktop
+slop
 sof-firmware
 sublime-text-4
 sudo
