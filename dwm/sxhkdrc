@@ -169,7 +169,8 @@ alt + {1,2,3,4,5,6,7,8,9}
 	dwmc viewex {0,1,2,3,4,5,6,7,8,9}
 # fous desktop
 super + 1
-	dwmviewx 1
+	dwmviewx 1; \
+	[ $(xdotool search --class "kittymain" | wc -l) = 0 ] && kitty --class=kittymain
 super + 2
 	dwmviewx 2; \
 	[ $(xdotool search --class "Google-chrome" | wc -l) = 0 ] && /opt/google/chrome/google-chrome
