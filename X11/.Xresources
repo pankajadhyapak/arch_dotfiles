@@ -36,3 +36,11 @@
 ! Whites
 *color7: #C3BAC6
 *color15: #D9E0EE
+
+
+dwm.normbordercolor: #1E1E2E
+dwm.normbgcolor: #1E1E2E
+dwm.normfgcolor: #D9E0EE
+dwm.selbordercolor: #96CDFB
+dwm.selbgcolor: #96CDFB
+dwm.selfgcolor: #282828

@@ -4,7 +4,12 @@ super + Escape
 
 # kitty terminal
 super + Return
+	tabbed -n "sttabbed" -r 2 st -w ''
+
+# kitty terminal
+alt + Return
 	kitty
+
 
 # st terminal
 super + shift + Return
@@ -103,6 +108,9 @@ super + r; s
 super + r; x
 	record kill
 
+# Lock screen
+super + shift + Escape
+  slock
 # DWM Specific
 super + shift + q
 	prompt "Do you want to quit?" "dwmc quit"
@@ -170,7 +178,7 @@ alt + {1,2,3,4,5,6,7,8,9}
 # fous desktop
 super + 1
 	dwmviewx 1; \
-	[ $(xdotool search --class "kittymain" | wc -l) = 0 ] && kitty --class=kittymain
+	[ $(xdotool search --classname "sttabbed" | wc -l) = 0 ] && tabbed -n "sttabbed" -r 2 st -w ''
 super + 2
 	dwmviewx 2; \
 	[ $(xdotool search --class "Google-chrome" | wc -l) = 0 ] && /opt/google/chrome/google-chrome
@@ -186,7 +194,7 @@ super + 6
 	dwmviewx 6
 super + 7
 	dwmviewx 7; \
-	[ $(xdotool search --class "Slack" | wc -l) = 0 ] && slack
+	[ $(xdotool search --classname "slack" | wc -l) = 0 ] && slack
 super + 8
 	dwmviewx 8; \
 	[ $(xdotool search --class "GitHub Desktop" | wc -l) = 0 ] && github-desktop

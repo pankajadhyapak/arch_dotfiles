@@ -10,6 +10,7 @@ alias ls="lsd -la"
 alias cat='bat'
 alias .d='cd ~/.dotfiles'
 alias .c='cd ~/.config'
+alias .l='cd ~/.local'
 # alias youtdl='youtube-dl -o "~/Documents/Youtube_Videos/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --all-subs --external-downloader aria2c'
 alias n="nvim"
 alias vim="nvim"

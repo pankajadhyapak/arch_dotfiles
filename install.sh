@@ -105,9 +105,9 @@ printf '#!/bin/zsh
 source "$ZDORDIR/zshrc"' > "$XDG_CONFIG_HOME/zsh/.zshrc"
 
 # X
-ln -s "$DOTFILES/.xinitrc" "$HOME"
-ln -s "$DOTFILES/.Xresources" "$HOME"
-ln -s "$DOTFILES/.xprofile" "$HOME"
+ln -s "$DOTFILES/X11/.xinitrc" "$HOME"
+ln -s "$DOTFILES/X11/.Xresources" "$HOME"
+ln -s "$DOTFILES/X11/.xprofile" "$HOME"
 
 mkdir -p "$HOME/.local/bin"
 ln -sf "$DOTFILES/scripts" "$HOME/.local/bin"
@@ -135,7 +135,7 @@ ln -sf "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
 
 
 # install st as backup
-git clone https://github.com/LukeSmithxyz/st "$HOME/.local/st"
+git clone https://github.com/pankajadhyapak/st "$HOME/.local/st"
 cd "$HOME/.local/st"
 sudo make clean install
 

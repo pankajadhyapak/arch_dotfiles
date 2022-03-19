@@ -1,18 +1,28 @@
-#! /bin/sh
-
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/ &
-
-sxhkd -c $HOME/.config/i3/sxhkdrc &
-
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-dunst &
+#!/bin/bash
 
 setxkbmap -option caps:escape
+
+dex -a -s ~/.config/autostart/ &
+
+# polkit agent
+if [[ ! `pidof xfce-polkit` ]]; then
+    /usr/lib/xfce-polkit/xfce-polkit &
+fi
+
+# Kill if already running
+killall -9 dunst picom flameshot
+
+blueman-applet &
+
+parcellite &
+
+nm-applet &
 
 picom --experimental-backends &
 
 set-wallpaper &
+
+dunst &
 
 clipster -d &
 
@@ -20,5 +30,8 @@ flameshot &
 
 libinput-gestures &
 
-# redshift &
 
+if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
+then
+ caffeine -a &
+fi
