@@ -196,7 +196,7 @@ dialog --no-cancel \
 dfiles=$(cat dfiles) && rm dfiles
 
 if [ "$dfiles" -eq 2 ]; then
-
+  sudo rm -rf "/home/$(whoami)/.zshrc"
   DOTFILES="/home/$(whoami)/.dotfiles"
   if [ ! -d "$DOTFILES" ];
       then

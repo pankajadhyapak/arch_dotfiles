@@ -11,7 +11,7 @@ rm -rf catppuccin-grub-theme
 
 mkdir -p /etc/pacman.d/hooks
 # auto update installed appos
-[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf '[Trigger]
+[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf "[Trigger]
 Type = Package
 Operation = Install
 Operation = Upgrade
@@ -21,5 +21,5 @@ Target = *
 [Action]
 Description = Create a backup list of all installed packages
 When = PostTransaction
-Exec = /bin/sh -c \'pacman -Qqe  > "/home/${3}/.dotfiles/apps/apps.txt" 2> /dev/null; exit\'
-' > /etc/pacman.d/hooks/50-pacman-list.hook
+Exec = /bin/sh -c 'pacman -Qqe  > \"/home/pankaj/.dotfiles/apps/apps.txt\" 2> /dev/null; exit'
+" > /etc/pacman.d/hooks/50-pacman-list.hook
