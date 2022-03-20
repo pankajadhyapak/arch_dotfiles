@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Make pacman colorful, concurrent downloads and Pacman eye-candy.
-grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf
-
-# Use all cores for compilation.
-sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
-
 # Install apps
 cat $DOTFILES/apps/apps.txt | while read app
 do
@@ -18,13 +11,8 @@ do
         sudo systemctl enable docker.service
     fi
 
-
     if [ "$app" = "mariadb" ]; then
         sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-    fi
-
-    if [ "$app" = "ly" ]; then
-        sudo systemctl enable ly.service
     fi
 done
 
@@ -35,10 +23,13 @@ cat "$HOME/aur_queue" | while read app
 do
    echo "INSTALLING: ${app}"
    yay -S --noconfirm --needed ${app} &>> /dev/null || echo "$app" &>> "$HOME/failed_apps"
+   if [ "$app" = "ly" ]; then
+        sudo systemctl enable ly.service
+   fi
 done
 
 # Tap to click
-[ ! -f /etc/X11/xorg.conf.d/30-touchpad.conf ] && printf 'Section "InputClass"
+[ ! -f /etc/X11/xorg.conf.d/30-touchpad.conf ] && sudo printf 'Section "InputClass"
     Identifier "touchpad"
     Driver "libinput"
     MatchIsTouchpad "on"
@@ -49,7 +40,7 @@ EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 sudo mkdir -p /etc/pacman.d/hooks
 # auto update installed appos
-[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf '[Trigger]
+[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && sudo printf '[Trigger]
 Type = Package
 Operation = Install
 Operation = Upgrade
