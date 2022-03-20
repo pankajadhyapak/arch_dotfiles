@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Make pacman colorful, concurrent downloads and Pacman eye-candy.
 grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf
@@ -24,8 +23,8 @@ do
         sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
     fi
 
-    if [ "$app" = "lightdm" ]; then
-        sudo systemctl enable lightdm.service
+    if [ "$app" = "ly" ]; then
+        sudo systemctl enable ly.service
     fi
 done
 
@@ -48,3 +47,17 @@ done
 EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 
+sudo mkdir -p /etc/pacman.d/hooks
+# auto update installed appos
+[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf '[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = *
+
+[Action]
+Description = Create a backup list of all installed packages
+When = PostTransaction
+Exec = /bin/sh -c 'pacman -Qqe  > "/home/$(whoami)/.dotfiles/apps/apps.txt" 2> /dev/null; exit'
+' > /etc/pacman.d/hooks/50-pacman-list.hook

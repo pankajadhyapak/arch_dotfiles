@@ -52,15 +52,6 @@ git config --global core.excludesFile  "$HOME/.gitignore"
 rm -rf "$XDG_CONFIG_HOME/i3"
 ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 
-# bspwm
-rm -rf "$XDG_CONFIG_HOME/bspwm"
-ln -s "$DOTFILES/bspwm" "$XDG_CONFIG_HOME"
-chmod +x "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-
-# polybar
-rm -rf "$XDG_CONFIG_HOME/polybar"
-ln -s "$DOTFILES/polybar" "$XDG_CONFIG_HOME"
-
 # sxhkd
 rm -rf "$XDG_CONFIG_HOME/sxhkd"
 ln -s "$DOTFILES/sxhkd" "$XDG_CONFIG_HOME"
@@ -137,6 +128,26 @@ ln -sf "$DOTFILES/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
 # install st as backup
 git clone https://github.com/pankajadhyapak/st "$HOME/.local/st"
 cd "$HOME/.local/st"
+sudo make clean install
+
+# install Dwm
+git clone https://github.com/pankajadhyapak/dwm "$HOME/.local/dwm"
+cd "$HOME/.local/dwm"
+sudo make clean install
+
+# install Dwm blocks
+git clone https://github.com/pankajadhyapak/dwmblocks "$HOME/.local/dwmblocks"
+cd "$HOME/.local/dwmblocks"
+sudo make clean install
+
+# install slock blocks
+git clone https://github.com/pankajadhyapak/slock "$HOME/.local/slock"
+cd "$HOME/.local/slock"
+sudo make clean install
+
+# install tabbed
+git clone https://github.com/pankajadhyapak/tabbed "$HOME/.local/tabbed"
+cd "$HOME/.local/tabbed"
 sudo make clean install
 
 # all done

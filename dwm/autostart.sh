@@ -2,12 +2,13 @@
 
 setxkbmap -option caps:escape
 
-dex -a -s ~/.config/autostart/ &
-
 # polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then
     /usr/lib/xfce-polkit/xfce-polkit &
 fi
+
+# autostart apps
+dex -a -s ~/.config/autostart/ &
 
 # Kill if already running
 killall -9 sxhkd dunst picom dwmblocks flameshot

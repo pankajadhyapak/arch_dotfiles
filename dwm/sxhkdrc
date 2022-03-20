@@ -10,7 +10,6 @@ super + Return
 alt + Return
 	kitty
 
-
 # st terminal
 super + shift + Return
 	st
@@ -70,9 +69,12 @@ super + n
 # edit config files
 super + comma
 	confedit
+
+# open pavucontrol
 super + a
   pavucontrol
-# rofi clipboard
+
+  # rofi clipboard
 super + shift + @p
 	roficlip
 
@@ -111,71 +113,100 @@ super + r; x
 # Lock screen
 super + shift + Escape
   slock
-# DWM Specific
+
+# Quit Dwm
 super + shift + q
 	prompt "Do you want to quit?" "dwmc quit"
+
+# kill focus client
 super + q
 	dwmc killclient
 
-## Toggle the dwm bar
+# Toggle the dwm bar
 super + b
 	dwmc togglebar
 
+# make windows sticky
 super + s
 	dwmc togglesticky
 
-## Make window fullscreen
+# Make window fullscreen
 super + f
 	dwmc togglefullscr
-## Make current window floating
+
+# Make current window floating
 super + shift + space
 	dwmc togglefloating
 
+# Cycle layouts forward
 super + l
 	dwmc cyclelayout +1
 
+# Cycle layouts backward
 super + shift + l
 	dwmc cyclelayout -1
+
+# Switch to tile layout
 super + t
 	dwmc setlayoutex 0
-## Cycle forward/backward through monitor focus
+
+# Switch to monocle layout
+super + m
+	dwmc setlayoutex 3
+
+# Show all windows
+super + 0
+	dwmc viewall
+
+# adjust gaps
+super + {equal, minus, plus}
+	dwmc setgaps {+1,-1,0}
+
+# move focused window
+super + shift + {Left, Right}
+	dwmc movestack {+,-}1
+
+# focus windows
+super + {Left, Right}
+	dwmc focusstack {+,-}1
+
+# Toggle scratchpad 0
+super + shift + s
+	dwmc togglescratchx 0
+
+# Toggle scratchpad 1
+super + shift + f
+	dwmc togglescratchx 1
+
+# Toggle scratchpad 2
+super + shift + a
+	dwmc togglescratchx 2
+
+# Cycle forward/backward through monitor focus
 alt + {comma,period}
 	dwmc focusmon {-,+}1
-## Move current window to previous/next monitor
+
+# Move current window to previous/next monitor
 alt + shift + {comma,period}
 	dwmc tagmon {-,+}1
 
+# Increase / decrease window size up down
 alt + {Up, Down}
 	dwmc setcfact {-,+}0.05
+
+# Increase / decrease window size left right
 alt + {Left, Right}
 	dwmc setmfact {-,+}0.05
-## View all tagssuper + shift + {comma,period}
-	# dwmc tagmon {-,+}1
-super + 0
-	dwmc viewall
+
 ## Move current window to tag {1-9}
 alt + shift + {1-9}
 	dwmc tagex {0-8}
 
-super + {equal, minus, plus}
-	dwmc setgaps {+1,-1,0}
-## Only view the tag {1-9}
 
-super + shift + {Left, Right}
-	dwmc movestack {+,-}1
-super + {Left, Right}
-	dwmc focusstack {+,-}1
+# view the tag {1-9}
+alt + {1-9}
+	dwmc viewex {0-8}
 
-super + shift + s
-	dwmc togglescratchx 0
-super + shift + f
-	dwmc togglescratchx 1
-super + shift + a
-	dwmc togglescratchx 2
-
-alt + {1,2,3,4,5,6,7,8,9}
-	dwmc viewex {0,1,2,3,4,5,6,7,8,9}
-# fous desktop
 super + 1
 	dwmviewx 1; \
 	[ $(xdotool search --classname "sttabbed" | wc -l) = 0 ] && tabbed -n "sttabbed" -r 2 st -w ''
@@ -201,6 +232,3 @@ super + 8
 super + 9
 	dwmviewx 9; \
 	[ $(xdotool search --class "Mailspring" | wc -l) = 0 ] && mailspring
-
-# super + {1-9}
-# 	dwmc viewex {0-8}
