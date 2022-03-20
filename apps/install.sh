@@ -28,27 +28,5 @@ echo "Installing yay apps"
 #    fi
 # done
 
-# Tap to click
-[ ! -f /etc/X11/xorg.conf.d/30-touchpad.conf ] && sudo printf 'Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-    Option "Tapping" "on"
-    Option "TappingButtonMap" "lrm"
-EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 
-sudo mkdir -p /etc/pacman.d/hooks
-# auto update installed appos
-[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && sudo printf '[Trigger]
-Type = Package
-Operation = Install
-Operation = Upgrade
-Operation = Remove
-Target = *
-
-[Action]
-Description = Create a backup list of all installed packages
-When = PostTransaction
-Exec = /bin/sh -c 'pacman -Qqe  > "/home/$(whoami)/.dotfiles/apps/apps.txt" 2> /dev/null; exit'
-' > /etc/pacman.d/hooks/50-pacman-list.hook

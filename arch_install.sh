@@ -156,6 +156,37 @@ echo "${3}:${4}" | chpasswd
 chsh -s "$(which zsh)" "${3}"
 echo "" > /home/${3}/.zshrc
 
+# Make pacman colorful, concurrent downloads and Pacman eye-candy.
+grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf
+
+# Use all cores for compilation.
+sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+
+# Tap to click
+[ ! -f /etc/X11/xorg.conf.d/30-touchpad.conf ] && printf 'Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
+
+mkdir -p /etc/pacman.d/hooks
+# auto update installed appos
+[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf '[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = *
+
+[Action]
+Description = Create a backup list of all installed packages
+When = PostTransaction
+Exec = /bin/sh -c 'pacman -Qqe  > "/home/${3}/.dotfiles/apps/apps.txt" 2> /dev/null; exit'
+' > /etc/pacman.d/hooks/50-pacman-list.hook
+
 echo "Base Installation Finished, Installing yay now"
 ai3_path=/home/${3}/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
@@ -166,14 +197,6 @@ exit
 
 #part3
 printf '\033c'
-
-# Make pacman colorful, concurrent downloads and Pacman eye-candy.
-grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf
-
-# Use all cores for compilation.
-sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
-
 cd $HOME
 git clone "https://aur.archlinux.org/yay.git"
 cd $HOME/yay
