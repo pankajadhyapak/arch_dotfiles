@@ -2,7 +2,7 @@
 
 # install apps
 bash $DOTFILES/apps/install.sh
-bash $DOTFILES/grub_theme.sh
+sudo sh $DOTFILES/grub_theme.sh
 
 # Screenshot
 mkdir -p "$HOME/Pictures/screenshots"

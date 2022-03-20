@@ -172,21 +172,6 @@ sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
     Option "TappingButtonMap" "lrm"
 EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 
-mkdir -p /etc/pacman.d/hooks
-# auto update installed appos
-[ ! -f /etc/pacman.d/hooks/50-pacman-list.hook ] && printf '[Trigger]
-Type = Package
-Operation = Install
-Operation = Upgrade
-Operation = Remove
-Target = *
-
-[Action]
-Description = Create a backup list of all installed packages
-When = PostTransaction
-Exec = /bin/sh -c 'pacman -Qqe  > "/home/${3}/.dotfiles/apps/apps.txt" 2> /dev/null; exit'
-' > /etc/pacman.d/hooks/50-pacman-list.hook
-
 echo "Base Installation Finished, Installing yay now"
 ai3_path=/home/${3}/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
