@@ -141,7 +141,7 @@ pacman -S --noconfirm intel-ucode
 proc_ucode=intel-ucode.img
 
 # Graphics Drivers find and install
-pacman -S libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils lib32-mesa --needed --noconfirm
+pacman -S libva-intel-driver libvdpau-va-gl vulkan-intel libva-intel-driver libva-utils --needed --noconfirm
 
 # install essential packages
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xprop xdg-utils xdg-user-dirs git man-db neovim zip unzip unrar p7zip dialog zsh networkmanager wget bluez bluez-utils
