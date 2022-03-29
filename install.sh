@@ -22,7 +22,6 @@ composer global install
 rm -rf "$XDG_CONFIG_HOME/nvim"
 git clone https://github.com/pankajadhyapak/nvim-config.git "$XDG_CONFIG_HOME/nvim"
 
-
 #vscode
 mkdir -p "$XDG_CONFIG_HOME/Code/User"
 ln -s "$DOTFILES/vscode.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
@@ -30,10 +29,6 @@ ln -s "$DOTFILES/vscode.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
 #autorandr
 rm -rf "$XDG_CONFIG_HOME/autorandr"
 ln -s "$DOTFILES/autorandr" "$XDG_CONFIG_HOME"
-
-#caffine
-rm -rf "$XDG_CONFIG_HOME/caffeine"
-ln -s "$DOTFILES/caffeine" "$XDG_CONFIG_HOME"
 
 #bat
 rm -rf "$XDG_CONFIG_HOME/bat"
@@ -84,6 +79,11 @@ ln -s "$DOTFILES/rofi" "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME/dunst"
 ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
 
+
+#pcmanfm
+mkdir -p "$XDG_CONFIG_HOME/pcmanfm"
+ln -sf "$DOTFILES/pcmanfm/default/pcmanfm.conf" "$XDG_CONFIG_HOME/pcmanfm/default/pcmanfm.conf"
+
 # Zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
@@ -93,7 +93,7 @@ ln -sf "$DOTFILES/zsh/zsh-functions" "$XDG_CONFIG_HOME/zsh/zsh-functions"
 ln -sf "$DOTFILES/zsh/zsh-prompt" "$XDG_CONFIG_HOME/zsh/zsh-prompt"
 printf '#!/bin/zsh
 
-source "$ZDORDIR/zshrc"' > "$XDG_CONFIG_HOME/zsh/.zshrc"
+source "$ZDOTDIR/zshrc"' > "$XDG_CONFIG_HOME/zsh/.zshrc"
 
 # X
 ln -s "$DOTFILES/X11/.xinitrc" "$HOME"
@@ -113,8 +113,7 @@ rm -rf "$XDG_CONFIG_HOME/zathura"
 ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
 
 # wallpapers
-cp "$DOTFILES/wallpaper.jpg" "$HOME/Pictures/wallpaper.jpg"
-sudo cp "$DOTFILES/wallpaper.jpg" /usr/share/wall.jpg
+cp "$DOTFILES/wallpaper.png" "$HOME/Pictures/wallpaper.png"
 
 # guestures
 rm -rf "$XDG_CONFIG_HOME/libinput-gestures.conf"
@@ -140,14 +139,9 @@ git clone https://github.com/pankajadhyapak/dwmblocks "$HOME/.local/dwmblocks"
 cd "$HOME/.local/dwmblocks"
 sudo make clean install
 
-# install slock blocks
+# install slock
 git clone https://github.com/pankajadhyapak/slock "$HOME/.local/slock"
 cd "$HOME/.local/slock"
-sudo make clean install
-
-# install tabbed
-git clone https://github.com/pankajadhyapak/tabbed "$HOME/.local/tabbed"
-cd "$HOME/.local/tabbed"
 sudo make clean install
 
 # all done

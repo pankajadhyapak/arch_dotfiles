@@ -14,21 +14,13 @@ application/x-extension-shtml=oogle-chrome.desktop
 application/xhtml+xml=oogle-chrome.desktop
 application/x-extension-xhtml=oogle-chrome.desktop
 application/x-extension-xht=oogle-chrome.desktop
+inode/directory=pcmanfm.desktop
+text/plain=visual-studio-code.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;visual-studio-code.desktop;
+text/csv=visual-studio-code.desktop;libreoffice-calc.desktop;
 
 [Added Associations]
 image/jpeg=nsxiv.desktop;google-chrome.desktop;nsxiv.desktop;
 image/png=nsxiv.desktop;google-chrome.desktop;
-text/csv=visual-studio-code.desktop;libreoffice-calc.desktop;
-text/plain=visual-studio-code.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;visual-studio-code.desktop;
-x-scheme-handler/http=xfce4-web-browser.desktop;oogle-chrome.desktop;
-x-scheme-handler/https=xfce4-web-browser.desktop;oogle-chrome.desktop;
-x-scheme-handler/chrome=oogle-chrome.desktop;
-text/html=oogle-chrome.desktop;
-application/x-extension-htm=oogle-chrome.desktop;
-application/x-extension-html=oogle-chrome.desktop;
-application/x-extension-shtml=oogle-chrome.desktop;
-application/xhtml+xml=oogle-chrome.desktop;
-application/x-extension-xhtml=oogle-chrome.desktop;
-application/x-extension-xht=oogle-chrome.desktop;
+

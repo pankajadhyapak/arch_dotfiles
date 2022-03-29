@@ -15,6 +15,7 @@ bluez
 bluez-utils
 brave-bin
 brightnessctl
+btop
 caffeine-ng
 catppuccin-gtk-theme
 clipster-git
@@ -24,6 +25,7 @@ dex
 dialog
 docker
 docker-compose
+downgrader-git
 dropbox
 duf
 dunst
@@ -110,9 +112,9 @@ p7zip
 pacman
 pacman-contrib
 pamixer
-parcellite
 patch
 pavucontrol
+pcmanfm
 phpstorm
 phpstorm-jre
 picom
@@ -138,16 +140,15 @@ simple-mtpfs
 slack-desktop
 slop
 sof-firmware
+stylua
 sublime-text-4
 sudo
 sxhkd
+tableplus
 texinfo
 tfenv
 the_silver_searcher
-thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
+ticktick
 tig
 time
 tldr

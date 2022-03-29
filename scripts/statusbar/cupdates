@@ -1,0 +1,13 @@
+#!/bin/env sh
+
+case $BLOCK_BUTTON in
+	6) st -e "sudo pacman -Syyu" ;;
+esac
+
+updates=$(checkupdates | wc -l)
+
+if [ "$updates" -gt 1 ]; then
+    echo " $updates"
+else
+    echo " "
+fi

@@ -4,10 +4,6 @@ super + Escape
 
 # kitty terminal
 super + Return
-	tabbed -n "sttabbed" -r 2 st -w ''
-
-# kitty terminal
-alt + Return
 	kitty
 
 # st terminal
@@ -171,17 +167,20 @@ super + {Left, Right}
 	dwmc focusstack {+,-}1
 
 # Toggle scratchpad 0
-super + shift + s
-	dwmc togglescratchx 0
-
-# Toggle scratchpad 1
-super + shift + f
-	dwmc togglescratchx 1
-
-# Toggle scratchpad 2
-super + shift + a
-	dwmc togglescratchx 2
-
+# super + shift + s
+# 	dwmc togglescratchx 0
+#
+# # Toggle scratchpad 1
+# super + shift + f
+# 	dwmc togglescratchx 1
+#
+# # Toggle scratchpad 2
+# super + shift + a
+# 	dwmc togglescratchx 2
+#
+# # Toggle scratchpad 2
+# super + shift + d
+# 	dwmc togglescratchx 3
 # Cycle forward/backward through monitor focus
 alt + {comma,period}
 	dwmc focusmon {-,+}1
@@ -208,8 +207,7 @@ alt + {1-9}
 	dwmc viewex {0-8}
 
 super + 1
-	dwmviewx 1; \
-	[ $(xdotool search --classname "sttabbed" | wc -l) = 0 ] && tabbed -n "sttabbed" -r 2 st -w ''
+	dwmviewx 1
 super + 2
 	dwmviewx 2; \
 	[ $(xdotool search --class "Google-chrome" | wc -l) = 0 ] && /opt/google/chrome/google-chrome
@@ -220,7 +218,7 @@ super + 4
 	dwmviewx 4
 super + 5
 	dwmviewx 5; \
-	[ $(xdotool search --class "Mysql-workbench-bin" | wc -l) = 0 ]  && GTK_THEME=Adwaita mysql-workbench
+	[ $(xdotool search --class "TablePlus" | wc -l) = 0 ]  && dex .config/local/share/applications/tableplus.desktop
 super + 6
 	dwmviewx 6
 super + 7
@@ -232,3 +230,6 @@ super + 8
 super + 9
 	dwmviewx 9; \
 	[ $(xdotool search --class "Mailspring" | wc -l) = 0 ] && mailspring
+
+super + shift + {1-9}
+	dwmtagx {1-9}

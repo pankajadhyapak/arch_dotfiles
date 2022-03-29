@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while inotifywait -e modify ~/Dropbox/arch_linux/todo/todo.txt; do
+    pkill -RTMIN+11 "${STATUSBAR:-dwmblocks}"
+    echo "changed"
+done
