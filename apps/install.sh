@@ -26,5 +26,4 @@ do
    fi
 done
 
-
-
+sudo gpasswd -a $(whoami) input

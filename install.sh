@@ -80,10 +80,6 @@ mkdir -p "$XDG_CONFIG_HOME/dunst"
 ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
 
 
-#pcmanfm
-mkdir -p "$XDG_CONFIG_HOME/pcmanfm"
-ln -sf "$DOTFILES/pcmanfm/default/pcmanfm.conf" "$XDG_CONFIG_HOME/pcmanfm/default/pcmanfm.conf"
-
 # Zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"

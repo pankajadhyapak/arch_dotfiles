@@ -166,21 +166,22 @@ super + shift + {Left, Right}
 super + {Left, Right}
 	dwmc focusstack {+,-}1
 
-# Toggle scratchpad 0
-# super + shift + s
-# 	dwmc togglescratchx 0
-#
-# # Toggle scratchpad 1
-# super + shift + f
-# 	dwmc togglescratchx 1
-#
-# # Toggle scratchpad 2
-# super + shift + a
-# 	dwmc togglescratchx 2
-#
-# # Toggle scratchpad 2
-# super + shift + d
-# 	dwmc togglescratchx 3
+#Toggle scratchpad 0
+super + shift + s
+	dwmc togglescratchx 0
+
+# Toggle scratchpad 1
+super + shift + f
+	dwmc togglescratchx 1
+
+# Toggle scratchpad 2
+super + shift + a
+	dwmc togglescratchx 2
+
+# Toggle scratchpad 2
+super + shift + d
+	dwmc togglescratchx 3
+
 # Cycle forward/backward through monitor focus
 alt + {comma,period}
 	dwmc focusmon {-,+}1
