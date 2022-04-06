@@ -45,7 +45,7 @@ xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
   --timer 60`` \
-   'notify-send --urgency=low -t 2000 "LOCKING screen in 10 seconds"' \
+   'notify-send --urgency=critical "LOCKING screen in 10 seconds"' \
    '' \
   --timer 10 \
     'slock' \

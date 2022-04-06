@@ -1,15 +1,19 @@
 activitywatch-bin
 alsa-utils
+ansible
+appimagelauncher
 arandr
 audacity
 autoconf
 automake
 autorandr
+awesome
 base
 bat
 bc
 bcm20702a1-firmware
 binutils
+bison
 blueman
 bluez
 bluez-utils
@@ -23,6 +27,7 @@ composer
 cups
 dex
 dialog
+dnsmasq
 docker
 docker-compose
 downgrader-git
@@ -86,7 +91,6 @@ mailspring
 make
 man-db
 man-pages
-mariadb
 mpv
 mysql-workbench
 neofetch
@@ -102,6 +106,7 @@ npm
 nsxiv
 ntfs-3g
 nvidia
+openbsd-netcat
 opencl-nvidia
 os-prober
 p7zip
@@ -119,6 +124,8 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 python-pip
 python-pynvim
+qemu
+qemu-arch-extra
 ranger
 redshift
 regexxer
@@ -158,8 +165,11 @@ ttf-ms-fonts
 unclutter
 unrar
 unzip
+usbutils
 vimix-cursors
 vint
+virt-manager
+virt-viewer
 visual-studio-code-bin
 vulkan-intel
 wget
@@ -175,6 +185,7 @@ xdo
 xdotool
 xf86-input-synaptics
 xf86-video-intel
+xf86-video-vesa
 xidlehook
 xorg-server
 xorg-x11perf

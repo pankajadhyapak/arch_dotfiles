@@ -76,8 +76,8 @@ rm -rf "$XDG_CONFIG_HOME/rofi"
 ln -s "$DOTFILES/rofi" "$XDG_CONFIG_HOME"
 
 #dunst
-mkdir -p "$XDG_CONFIG_HOME/dunst"
-ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
+rm -rf "$XDG_CONFIG_HOME/dunst"
+ln -sf "$DOTFILES/dunst" "$XDG_CONFIG_HOME"
 
 
 # Zsh
