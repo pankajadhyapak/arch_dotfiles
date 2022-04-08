@@ -7,7 +7,6 @@ audacity
 autoconf
 automake
 autorandr
-awesome
 base
 bat
 bc
@@ -54,7 +53,6 @@ github-desktop-bin
 gnome-calculator
 gnome-disk-utility
 gnome-keyring
-go
 go-tools
 goland
 goland-jre
@@ -68,7 +66,6 @@ gzip
 httpie
 i3-gaps
 i3status
-imagemagick
 insomnia-bin
 intel-ucode
 jq
@@ -87,10 +84,12 @@ linux-firmware
 lsd
 lxappearance-gtk3
 ly
+m4
 mailspring
 make
 man-db
 man-pages
+mariadb
 mpv
 mysql-workbench
 neofetch
@@ -118,10 +117,12 @@ pavucontrol
 phpstorm
 phpstorm-jre
 picom
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-media-session
+pipewire-pulse
 pkgconf
-pulseaudio
-pulseaudio-alsa
-pulseaudio-bluetooth
 python-pip
 python-pynvim
 qemu

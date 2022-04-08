@@ -11,7 +11,6 @@ mkdir -p "$HOME/Pictures/screenshots"
 go install mvdan.cc/gofumpt@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/segmentio/golines@latest
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.44.2
 
 # install PHP deps
 mkdir -p "$XDG_CONFIG_HOME/composer"
@@ -20,7 +19,7 @@ composer global install
 
 # nvim
 rm -rf "$XDG_CONFIG_HOME/nvim"
-git clone https://github.com/pankajadhyapak/nvim-config.git "$XDG_CONFIG_HOME/nvim"
+git clone https://github.com/pankajadhyapak/nvim.git "$XDG_CONFIG_HOME/nvim"
 
 #vscode
 mkdir -p "$XDG_CONFIG_HOME/Code/User"
@@ -47,9 +46,6 @@ git config --global core.excludesFile  "$HOME/.gitignore"
 rm -rf "$XDG_CONFIG_HOME/i3"
 ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 
-# sxhkd
-rm -rf "$XDG_CONFIG_HOME/sxhkd"
-ln -s "$DOTFILES/sxhkd" "$XDG_CONFIG_HOME"
 
 #gtk theme
 rm -rf "$XDG_CONFIG_HOME/gtk-3.0"
@@ -59,9 +55,9 @@ ln -s "$DOTFILES/gtk-3.0" "$XDG_CONFIG_HOME"
 rm -rf "$XDG_CONFIG_HOME/kitty"
 ln -s "$DOTFILES/kitty" "$XDG_CONFIG_HOME"
 
-#alacritty
-rm -rf "$XDG_CONFIG_HOME/alacritty"
-ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
+#tmux
+rm -rf "$HOME/.tmux.conf"
+ln -s "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 #picom
 rm -rf "$XDG_CONFIG_HOME/picom"

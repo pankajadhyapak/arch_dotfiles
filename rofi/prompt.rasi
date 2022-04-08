@@ -1,7 +1,14 @@
+configuration {
+  show-icons:false;
+}
 inputbar {
   children: [prompt, entry];
 }
 
 listview {
 	lines: 2;
+}
+
+element {
+  padding: 12 0;
 }

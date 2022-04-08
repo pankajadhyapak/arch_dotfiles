@@ -2,14 +2,14 @@ configuration {
   show-icons:false;
 }
 
-inputbar {
-  children: [entry];
-}
-
-listview {
-	lines: 3;
+window {
+  width: 50%;
 }
 
 element {
   padding: 12 0;
+}
+
+listview {
+	lines: 12;
 }
