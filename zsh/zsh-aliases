@@ -44,7 +44,7 @@ alias go-format="gofmt -s -w . && goimports -l -w ."
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 
 # Lock the screen
-alias afk="betterlockscreen -l dimblur"
+alias afk="slock"
 
 
 alias x="startx"

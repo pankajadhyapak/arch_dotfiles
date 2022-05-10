@@ -1,5 +1,6 @@
 activitywatch-bin
 alsa-utils
+android-studio
 ansible
 appimagelauncher
 arandr
@@ -22,8 +23,8 @@ btop
 caffeine-ng
 catppuccin-gtk-theme
 clipster-git
-composer
 cups
+dart
 dex
 dialog
 dnsmasq
@@ -44,6 +45,7 @@ filezilla
 findutils
 flameshot
 flex
+flutter
 fzf
 gawk
 gcc
@@ -53,6 +55,7 @@ github-desktop-bin
 gnome-calculator
 gnome-disk-utility
 gnome-keyring
+go
 go-tools
 goland
 goland-jre
@@ -70,6 +73,7 @@ insomnia-bin
 intel-ucode
 jq
 kitty
+kotlin
 lazydocker
 lazygit
 libinput-gestures
@@ -101,10 +105,13 @@ net-tools
 network-manager-applet
 networkmanager
 nmap
+notion-app
 npm
 nsxiv
 ntfs-3g
+ntp
 nvidia
+obsidian
 openbsd-netcat
 opencl-nvidia
 os-prober
@@ -114,6 +121,10 @@ pacman-contrib
 pamixer
 patch
 pavucontrol
+php7
+php7-pgsql
+php7-redis
+php7-sqlite
 phpstorm
 phpstorm-jre
 picom
@@ -129,9 +140,11 @@ qemu
 qemu-arch-extra
 ranger
 redshift
+reflector
 regexxer
 ripgrep
 rofi
+rsnapshot
 rsync
 ruby
 seahorse
@@ -142,6 +155,7 @@ simple-mtpfs
 slack-desktop
 slop
 sof-firmware
+sops
 stylua
 sublime-text-4
 sudo
