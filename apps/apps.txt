@@ -83,8 +83,9 @@ libva-intel-driver
 libva-utils
 libvdpau-va-gl
 libxft-bgra
-linux
 linux-firmware
+linux-lts
+linux-lts-headers
 lsd
 lxappearance-gtk3
 ly
@@ -110,7 +111,8 @@ npm
 nsxiv
 ntfs-3g
 ntp
-nvidia
+nvidia-lts
+nvidia-utils
 obsidian
 openbsd-netcat
 opencl-nvidia
@@ -134,6 +136,7 @@ pipewire-jack
 pipewire-media-session
 pipewire-pulse
 pkgconf
+postman-bin
 python-pip
 python-pynvim
 qemu
