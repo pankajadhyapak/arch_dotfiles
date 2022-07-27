@@ -9,7 +9,7 @@ setxkbmap -option caps:escape
 dex -a -s ~/.config/autostart/ &
 
 # Kill if already running
-killall -9 sxhkd dunst picom dwmblocks flameshot unclutter aw-qt
+killall -9 sxhkd dunst picom dwmblocks flameshot unclutter
 
 blueman-applet &
 
@@ -38,7 +38,6 @@ then
  caffeine -a &
 fi
 
-aw-qt &
 
 # Run xidlehook
 xidlehook \
