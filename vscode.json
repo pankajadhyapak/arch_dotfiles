@@ -12,9 +12,9 @@
     "files.trimTrailingWhitespace": true,
     "workbench.tree.indent": 26,
     "workbench.tree.renderIndentGuides": "always",
-    "workbench.iconTheme": "ayu",
+    "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
-    "editor.fontSize": 15,
+    "editor.fontSize": 16,
     "extensions.ignoreRecommendations": true,
     "editor.formatOnSave": false,
     "workbench.colorTheme": "Catppuccin",
@@ -24,10 +24,14 @@
         "editor.rulers": [
             80
         ],
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        },
         "editor.selectionHighlight": false,
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.suggestSelection": "first",
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
     },
+    "go.toolsManagement.autoUpdate": true,
 }

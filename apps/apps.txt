@@ -171,6 +171,7 @@ tmux
 tmuxp
 ttf-droid
 ttf-joypixels
+ttf-kannada-font
 ttf-ms-fonts
 unclutter
 unrar

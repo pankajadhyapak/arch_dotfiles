@@ -35,7 +35,7 @@ unclutter &
 
 if [ $(xrandr --query | grep " connected" | wc -l) -gt 2 ]
 then
- caffeine -a &
+ caffeine start -a &
 fi
 
 
