@@ -1,3 +1,4 @@
+act
 alsa-utils
 android-studio
 ansible
@@ -44,6 +45,7 @@ flex
 fzf
 gawk
 gcc
+gdu
 gettext
 git
 github-desktop-bin
@@ -65,7 +67,6 @@ httpie
 i3-gaps
 i3blocks
 i3status
-insomnia-bin
 intel-ucode
 jq
 kitty
@@ -150,6 +151,7 @@ slack-desktop
 slop
 sof-firmware
 sops
+speedtest-cli
 stylua
 sublime-text-4
 sudo
@@ -181,6 +183,7 @@ vimix-cursors
 vint
 visual-studio-code-bin
 vulkan-intel
+webstorm
 wget
 which
 whois

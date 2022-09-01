@@ -1,4 +1,4 @@
 #!/bin/bash
 
-fileName="$HOME/Dropbox/arch_linux/org/$(date +'%d_%m_%Y').org"
+fileName="$HOME/Dropbox/arch_linux/org/$(date +'%d_%m_%Y_%A').org"
 nvim $fileName

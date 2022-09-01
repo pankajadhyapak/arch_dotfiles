@@ -1,37 +1,56 @@
 {
-    "workbench.statusBar.visible": false,
-    "editor.fontFamily": "JetBrainsMono Nerd Font, Firacode Nerd Font",
-    "editor.lineHeight": 1.8,
-    "editor.minimap.enabled": false,
-    "breadcrumbs.enabled": false,
-    "editor.renderWhitespace": "none",
-    "workbench.editor.untitled.hint": "hidden",
-    "workbench.startupEditor": "none",
-    "files.insertFinalNewline": true,
-    "files.autoSave": "onFocusChange",
-    "files.trimTrailingWhitespace": true,
-    "workbench.tree.indent": 26,
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.iconTheme": "material-icon-theme",
-    "explorer.confirmDelete": false,
-    "editor.fontSize": 16,
-    "extensions.ignoreRecommendations": true,
-    "editor.formatOnSave": false,
-    "workbench.colorTheme": "Catppuccin",
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
-        ],
-        "editor.codeActionsOnSave": {
-            "source.fixAll": true
-        },
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
+  "workbench.statusBar.visible": false,
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Firacode Nerd Font",
+  "editor.lineHeight": 1.8,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "editor.renderWhitespace": "none",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.startupEditor": "none",
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "workbench.tree.indent": 26,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.confirmDelete": false,
+  "editor.fontSize": 16,
+  "extensions.ignoreRecommendations": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "emmet.triggerExpansionOnTab": true,
+
+  //   "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
     },
-    "go.toolsManagement.autoUpdate": true,
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[vue]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+
+  "go.toolsManagement.autoUpdate": true,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-expand-multiline"
+    },
+    "prettyhtml": {
+      "printWidth": 100,
+      "singleQuote": false,
+      "wrapAttributes": false,
+      "sortAttributes": false
+    }
+  }
 }
