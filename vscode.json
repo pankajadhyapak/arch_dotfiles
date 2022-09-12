@@ -1,6 +1,5 @@
 {
-  "workbench.statusBar.visible": false,
-  "editor.fontFamily": "JetBrainsMono Nerd Font, Firacode Nerd Font",
+  "editor.fontFamily": "Hack Nerd Font, Firacode Nerd Font",
   "editor.lineHeight": 1.8,
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": false,
@@ -34,10 +33,16 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
   },
+  "files.associations": {
+    "*.jsx": "javascript"
+  },
   "[vue]": {
     "editor.formatOnSave": true
   },
   "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[jsx]": {
     "editor.formatOnSave": true
   },
 
